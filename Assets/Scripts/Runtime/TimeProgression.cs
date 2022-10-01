@@ -30,6 +30,14 @@ namespace GatherCraftDefend
                 _ => DayPhase.Defend
             };
 
+        public static string Stringify(GameRuntime runtime)
+        {
+            var day = PassedDaysIn(runtime) + 1;
+            var seconds = Mathf.FloorToInt(PassedDaySecondsIn(runtime));
+            var phase = DayPhaseOf(runtime);
+            return $"Day {day} - Seconds {seconds} ({phase})";
+        }
+
 
         public record GameRuntime(float TotalSeconds);
 
