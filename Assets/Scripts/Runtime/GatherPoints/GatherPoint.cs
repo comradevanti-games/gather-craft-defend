@@ -8,17 +8,26 @@ namespace GatherCraftDefend.GatherPoints {
 #region Fields
 
 		[SerializeField] private ResourceType gatherPointResourceType;
+		[SerializeField] private int maxGatherAmount;
 
 #endregion
 
 #region Properties
+
+		private int GatherAmount { get; set; } = 0;
 
 #endregion
 
 #region Methods
 
 		public void Gather() {
-			Debug.Log("I got gathered!");
+			if (GatherAmount < maxGatherAmount) {
+				GatherAmount++;
+				//TODO: What happens on a gather? Spawn Resources...
+			}
+			else {
+				Destroy(gameObject);
+			}
 		}
 
 #endregion
