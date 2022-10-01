@@ -23,7 +23,7 @@ namespace GatherCraftDefend
         {
             if (gatherPoints.Any())
             {
-                if (Input.GetKey(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("Trying to gather");
                     var closest = gatherPoints.OrderBy(CalculateDistanceToPlayer).First();

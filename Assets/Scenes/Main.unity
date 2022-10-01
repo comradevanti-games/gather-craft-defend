@@ -748,10 +748,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1263720488}
   - component: {fileID: 1263720489}
-  - component: {fileID: 1263720491}
-  - component: {fileID: 1263720490}
   - component: {fileID: 1263720492}
+  - component: {fileID: 1263720490}
   - component: {fileID: 1263720493}
+  - component: {fileID: 1263720491}
+  - component: {fileID: 1263720495}
   - component: {fileID: 1263720494}
   m_Layer: 0
   m_Name: character
@@ -951,6 +952,19 @@ MonoBehaviour:
   onResourceRemovedFromBag:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1263720495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263720487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09aeb3d4d611aff4d85ce86e8f8864c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gatherPoints: []
 --- !u!1 &1622222926
 GameObject:
   m_ObjectHideFlags: 0
