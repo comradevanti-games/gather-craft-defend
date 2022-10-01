@@ -16,26 +16,26 @@ namespace GatherCraftDefend.Resources {
 
 #region Properties
 
-		public List<Resource> Bag { get; set; }
+		public List<ResourceType> Bag { get; set; }
 
 #endregion
 
 #region Methods
 
 		private void Start() {
-			Bag = new List<Resource>();
+			Bag = new List<ResourceType>();
 		}
 
-		public void AddResourceToBag(Resource resource) {
-			Bag.Add(resource);
-			onResourceAddedToBag?.Invoke(resource.ResourceType);
+		public void AddResourceToBag(ResourceType resourceType) {
+			Bag.Add(resourceType);
+			onResourceAddedToBag?.Invoke(resourceType);
 		}
 
 		public int GetResourceAmount(ResourceType resourceType) =>
-			Bag.FindAll(resource => resource.ResourceType == resourceType).Count;
+			Bag.FindAll(resType => resType == resourceType).Count;
 
 		public void RemoveFromResourceBag(ResourceType resourceType, int amount) {
-			Bag.Remove(Bag.First(resource => resource.ResourceType == resourceType));
+			Bag.Remove(Bag.First(resType => resType == resourceType));
 			onResourceRemovedFromBag?.Invoke(resourceType, amount);
 		}
 
