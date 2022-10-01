@@ -34,6 +34,7 @@ MonoBehaviour:
     - dev.comradevanti.opt-unity
     - dev.comradevanti.rect-constraints
     - org.nuget.comradevanti.csharptools.opt
+    - org.nuget.dev.comradevanti.nothing
     - org.nuget.system.buffers
     - org.nuget.system.collections.immutable
     - org.nuget.system.memory
@@ -46,6 +47,6 @@ MonoBehaviour:
   m_RegistryInfoDraft:
     m_Modified: 0
     m_ErrorMessage: 
-    m_UserModificationsInstanceId: -832
-    m_OriginalInstanceId: -834
+    m_UserModificationsInstanceId: -828
+    m_OriginalInstanceId: -830
   m_LoadAssets: 0
