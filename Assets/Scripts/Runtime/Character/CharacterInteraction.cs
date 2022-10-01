@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GatherCraftDefend.GatherPoints;
+using GatherCraftDefend.Resources;
 using UnityEngine;
 
 namespace GatherCraftDefend
@@ -10,12 +11,13 @@ namespace GatherCraftDefend
     
     public class CharacterInteraction : MonoBehaviour
     {
-        
+
+        public ResourcesBag resourcesBag;
         public List<GameObject> gatherPoints;
         // Start is called before the first frame update
         void Start()
         {
-            
+            resourcesBag = GetComponent<ResourcesBag>();
         }
 
         // Update is called once per frame
@@ -25,8 +27,9 @@ namespace GatherCraftDefend
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Debug.Log("Trying to gather");
+                    
                     var closest = gatherPoints.OrderBy(CalculateDistanceToPlayer).First();
+                    Debug.Log("Trying to gather "+ closest.name );
                     closest.gameObject.GetComponent<GatherPoint>().Gather();
                     
                     //TODO: Mine Resource, delete gatherpoint
@@ -39,8 +42,8 @@ namespace GatherCraftDefend
             
             if (other.tag == "Resource")
             {
-                
-                //TODO: add resource to inventory
+                resourcesBag.AddResourceToBag(other.GetComponent<Resource>().ResourceType);
+                other.GetComponent<Resource>().Collect();
             }else if (other.tag == "GatherPoint")
             {
                 
