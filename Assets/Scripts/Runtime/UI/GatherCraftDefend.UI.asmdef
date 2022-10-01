@@ -1,0 +1,17 @@
+{
+    "name": "GatherCraftDefend.UI",
+    "rootNamespace": "GatherCraftDefend.UI",
+    "references": [
+        "GUID:d12a8f5494ee6084fb537236f22aec3e",
+        "GUID:2bafac87e7f4b9b418d9448d219b01ab"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
