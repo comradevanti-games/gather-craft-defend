@@ -1,3 +1,5 @@
+using System;
+using GatherCraftDefend.Resources;
 using UnityEngine;
 
 namespace GatherCraftDefend.GatherPoints {
@@ -7,19 +9,18 @@ namespace GatherCraftDefend.GatherPoints {
 #region Fields
 
 		[SerializeField] private Collider2D gatherRangeTrigger;
+		[SerializeField] private ResourceType gatherPointResourceType;
 
 #endregion
 
 #region Properties
-		
-		
 
 #endregion
 
 #region Methods
 
 		public void Gather() {
-			
+			Debug.Log("I got gathered!");
 		}
 
 #endregion
