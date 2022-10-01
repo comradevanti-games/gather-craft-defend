@@ -40,6 +40,21 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
-  }
+    "com.unity.modules.xr": "1.0.0",
+    "org.nuget.system.collections.immutable": "6.0.0"
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.openupm",
+        "org.nuget.system.buffers",
+        "org.nuget.system.collections.immutable",
+        "org.nuget.system.memory",
+        "org.nuget.system.numerics.vectors",
+        "org.nuget.system.runtime.compilerservices.unsafe"
+      ]
+    }
+  ]
 }
