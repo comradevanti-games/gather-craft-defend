@@ -169,5 +169,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6c00c5c5f91554f91861085b21e1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gatherRangeTrigger: {fileID: 0}
   gatherPointResourceType: 1
+  maxGatherAmount: 5
