@@ -137,6 +137,30 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "dev.comradevanti.opt-unity": {
+      "version": "3.3.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "org.nuget.comradevanti.csharptools.opt": "2.2.0",
+        "dev.comradevanti.rect-constraints": "1.0.3"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "dev.comradevanti.rect-constraints": {
+      "version": "1.0.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "org.nuget.comradevanti.csharptools.opt": {
+      "version": "2.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "org.nuget.system.buffers": {
       "version": "4.5.1",
       "depth": 2,
