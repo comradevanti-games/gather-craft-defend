@@ -18,6 +18,10 @@ namespace GatherCraftDefend.GatherPoints {
 
 #region Methods
 
+		public void Gather() {
+			
+		}
+
 #endregion
 
 	}
