@@ -17,7 +17,7 @@ namespace GatherCraftDefend
 
 
         private void Awake() =>
-            enemyTypes = EnemySpawner.LoadEnemyTypes();
+            enemyTypes = LoadEnemyTypes();
 
         public IOpt<Enemy> TrySpawnEnemyWithTypeName(string name) =>
             enemyTypes.TryGetById(name)

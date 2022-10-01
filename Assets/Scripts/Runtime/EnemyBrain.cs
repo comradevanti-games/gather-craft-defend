@@ -8,15 +8,15 @@ namespace GatherCraftDefend
     public class EnemyBrain : MonoBehaviour
     {
 
-        private static readonly Vector2 bastionPosition = Vector2.zero;
-        private static readonly Task goToBastionTask =
-            EnemyBrain.StartGoingTo(bastionPosition);
+        private static readonly Vector2 stashPosition = Vector2.zero;
+        private static readonly Task goToStashTask =
+            EnemyBrain.StartGoingTo(stashPosition);
 
         [SerializeField] private Seeker seeker;
 
 
         private void Awake() => 
-            StartDoing(goToBastionTask);
+            StartDoing(goToStashTask);
 
         private void StartDoing(Task task)
         {
