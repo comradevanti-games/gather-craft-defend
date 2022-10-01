@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3506328902635204575}
   - component: {fileID: 6910751165106326787}
-  - component: {fileID: 3506328902635204574}
-  - component: {fileID: 229962293035582174}
-  - component: {fileID: 1939672656803042310}
+  - component: {fileID: 905972468101290033}
+  - component: {fileID: 5468336131216060116}
+  - component: {fileID: 337888746472763547}
   m_Layer: 0
-  m_Name: Resource
-  m_TagString: Resource
+  m_Name: wood_01
+  m_TagString: GatherPoint
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,31 +76,18 @@ SpriteRenderer:
   m_SortingLayerID: -1941460901
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b1f4612ce44fca14680c88930d73ff24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f85d5e2fda542f45929583e0d80ee28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3506328902635204574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506328902635204545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769b6b6280196384b8e3bde0fd574f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
---- !u!50 &229962293035582174
+--- !u!50 &905972468101290033
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -127,8 +114,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &1939672656803042310
-CapsuleCollider2D:
+--- !u!58 &5468336131216060116
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,6 +146,41 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 0.65}
+  m_Offset: {x: 0, y: -1.25}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!70 &337888746472763547
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506328902635204545}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.15}
+  m_Size: {x: 0.9, y: 0.35}
   m_Direction: 1
