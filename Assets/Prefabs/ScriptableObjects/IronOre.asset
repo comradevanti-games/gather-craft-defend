@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: IronOre
   m_EditorClassIdentifier: 
   resourceName: IroneOre
-  resourceSprite: {fileID: 21300000, guid: e255676c117bba843b0dd56ca2c09d36, type: 3}
+  resourceSprite: {fileID: 21300000, guid: da9d0c420fc8d2a43a39ba022558754a, type: 3}
   resourceType: 2
