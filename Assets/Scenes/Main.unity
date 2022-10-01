@@ -2882,6 +2882,7 @@ GameObject:
   - component: {fileID: 622370703}
   - component: {fileID: 622370704}
   - component: {fileID: 622370705}
+  - component: {fileID: 622370706}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -2931,6 +2932,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onPhaseChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 622370706}
+        m_TargetAssemblyTypeName: GatherCraftDefend.EnemyKeeper, GatherCraftDefend
+        m_MethodName: OnPhaseChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &622370704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2962,6 +2978,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyParentTransform: {fileID: 1143981660}
+--- !u!114 &622370706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622370701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0bafb9ec1cbee4887ece7e077c6ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 622370705}
 --- !u!1 &1133008327
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ namespace GatherCraftDefend
     {
 
         [SerializeField] private UnityEvent<GameRuntime> onTimeChanged;
+        [SerializeField] private UnityEvent<DayPhase> onPhaseChanged;
 
         private GameRuntime runtime = initialTime;
 
@@ -24,8 +25,11 @@ namespace GatherCraftDefend
 
         private void OnTimeChanged(GameRuntime newTime)
         {
-            runtime = newTime;
+            if (DayPhaseOf(newTime) != DayPhaseOf(runtime))
+                onPhaseChanged.Invoke(DayPhaseOf(newTime));
+            
             onTimeChanged.Invoke(newTime);
+            runtime = newTime;
         }
 
     }
