@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   resourceName: Meat
-  resourceSprite: {fileID: 0}
+  resourceSprite: {fileID: 21300000, guid: b594d075a11001043b20c84186e8175b, type: 3}
   resourceType: 3
