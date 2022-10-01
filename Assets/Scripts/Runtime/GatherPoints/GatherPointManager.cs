@@ -30,25 +30,27 @@ namespace GatherCraftDefend {
 
 		private void Start() {
 			AvailableGatherPoints = new List<GatherPoint>();
-			SpawnGatherPoints(maxGatherPointsAmount);
+			SpawnGatherPoints();
 		}
 
 		private GameObject GetRandomGatherPoint() => gatherPointRepository[Random.Range(0, gatherPointRepository.Count - 1)];
 
-		private void SpawnGatherPoints(int spawnAmount) {
+		private void SpawnGatherPoints() {
 
-			for (int i = 0; i <= spawnAmount; i++) {
+			if (AvailableGatherPoints.Count < maxGatherPointsAmount) {
+				for (int i = 0; i <= AvailableGatherPoints.Count; i++) {
 
-				var gatherPoint = Instantiate(
-						GetRandomGatherPoint(),
-						SpawnRing.GeneratePoint(minGatherPointDistance, maxGatherPointDistance),
-						Quaternion.identity)
-					.GetComponent<GatherPoint>();
+					var gatherPoint = Instantiate(
+							GetRandomGatherPoint(),
+							SpawnRing.GeneratePoint(minGatherPointDistance, maxGatherPointDistance),
+							Quaternion.identity)
+						.GetComponent<GatherPoint>();
 
-				AvailableGatherPoints.Add(gatherPoint);
+					AvailableGatherPoints.Add(gatherPoint);
 
+				}
 			}
-
+			
 		}
 
 #endregion

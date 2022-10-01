@@ -16,6 +16,14 @@ namespace GatherCraftDefend.Resources {
 
 #endregion
 
+#region Methods
+
+		public void Collect() {
+			Destroy(gameObject);
+		}
+
+#endregion
+
 	}
 
 }
