@@ -1,5 +1,4 @@
 using ComradeVanti.CSharpTools;
-using Dev.ComradeVanti;
 using UnityEngine;
 
 namespace GatherCraftDefend
@@ -18,16 +17,12 @@ namespace GatherCraftDefend
         private void Awake() =>
             enemyTypes = EnemySpawner.LoadEnemyTypes();
 
-
-        public IOpt<Nothing> TrySpawnEnemyWithName(string name) =>
+        public IOpt<GameObject> TrySpawnEnemyWithName(string name) =>
             enemyTypes.TryGetById(name)
                       .Map(SpawnEnemyOfType);
 
-        private Nothing SpawnEnemyOfType(EnemyType type)
-        {
+        private GameObject SpawnEnemyOfType(EnemyType type) =>
             Instantiate(type.Prefab, enemyParentTransform);
-            return Nothing.atAll;
-        }
 
         private static ResourceRepo<string, EnemyType> LoadEnemyTypes() =>
             ResourceRepo<string, EnemyType>.Load(ResourcePath, it => it.name);
