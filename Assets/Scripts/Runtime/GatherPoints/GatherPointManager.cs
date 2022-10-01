@@ -37,9 +37,11 @@ namespace GatherCraftDefend {
 
 		private void SpawnGatherPoints() {
 
-			if (AvailableGatherPoints.Count < maxGatherPointsAmount) {
-				
-				for (int i = 0; i <= maxGatherPointsAmount; i++) {
+			int currentGatherPointsAmount = AvailableGatherPoints.Count;
+
+			if (currentGatherPointsAmount < maxGatherPointsAmount) {
+
+				for (int i = currentGatherPointsAmount; i < maxGatherPointsAmount; i++) {
 
 					var gatherPoint = Instantiate(
 							GetRandomGatherPoint(),
@@ -51,7 +53,7 @@ namespace GatherCraftDefend {
 
 				}
 			}
-			
+
 		}
 
 #endregion
