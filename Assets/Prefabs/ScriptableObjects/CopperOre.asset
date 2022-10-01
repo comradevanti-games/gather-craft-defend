@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CopperOre
   m_EditorClassIdentifier: 
   resourceName: CopperOre
-  resourceSprite: {fileID: 21300000, guid: 81ef2322467960543bda724599a52cb6, type: 3}
+  resourceSprite: {fileID: 21300000, guid: 49aea9252065c0143b801a1ff6bf3a74, type: 3}
   resourceType: 1

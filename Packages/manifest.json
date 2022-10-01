@@ -42,7 +42,8 @@
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
     "org.nuget.system.collections.immutable": "6.0.0",
-    "dev.comradevanti.opt-unity": "3.3.1"
+    "dev.comradevanti.opt-unity": "3.3.1",
+    "org.nuget.dev.comradevanti.nothing": "1.0.0"
   },
   "scopedRegistries": [
     {
@@ -53,6 +54,7 @@
         "dev.comradevanti.opt-unity",
         "dev.comradevanti.rect-constraints",
         "org.nuget.comradevanti.csharptools.opt",
+        "org.nuget.dev.comradevanti.nothing",
         "org.nuget.system.buffers",
         "org.nuget.system.collections.immutable",
         "org.nuget.system.memory",

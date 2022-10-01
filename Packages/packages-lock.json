@@ -161,6 +161,13 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "org.nuget.dev.comradevanti.nothing": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "org.nuget.system.buffers": {
       "version": "4.5.1",
       "depth": 2,
