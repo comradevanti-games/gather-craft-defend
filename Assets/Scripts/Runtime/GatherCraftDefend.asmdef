@@ -2,7 +2,8 @@
     "name": "GatherCraftDefend",
     "rootNamespace": "GatherCraftDefend",
     "references": [
-        "GUID:abae1860b9cc9c84289013571e170b12"
+        "GUID:abae1860b9cc9c84289013571e170b12",
+        "GUID:efa45043feb7e4147a305b73b5cea642"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
