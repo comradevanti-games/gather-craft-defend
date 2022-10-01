@@ -8,24 +8,29 @@ namespace GatherCraftDefend
     public class EnemySpawner : MonoBehaviour
     {
 
+        private const string ResourcePath = "EnemyTypes";
+
         [SerializeField] private Transform enemyParentTransform;
 
-        private EnemyTypeRepo enemyTypeRepo;
+        private ResourceRepo<string, EnemyType> enemyTypes;
 
 
         private void Awake() =>
-            enemyTypeRepo = EnemyTypeRepo.LoadFromResources();
+            enemyTypes = EnemySpawner.LoadEnemyTypes();
 
 
         public IOpt<Nothing> TrySpawnEnemyWithName(string name) =>
-            enemyTypeRepo.TryGetByName(name)
-                         .Map(SpawnEnemyOfType);
+            enemyTypes.TryGetById(name)
+                      .Map(SpawnEnemyOfType);
 
         private Nothing SpawnEnemyOfType(EnemyType type)
         {
             Instantiate(type.Prefab, enemyParentTransform);
             return Nothing.atAll;
         }
+
+        private static ResourceRepo<string, EnemyType> LoadEnemyTypes() =>
+            ResourceRepo<string, EnemyType>.Load(ResourcePath, it => it.name);
 
     }
 
