@@ -38,22 +38,33 @@ namespace GatherCraftDefend {
 		private void SpawnGatherPoints() {
 
 			int currentGatherPointsAmount = AvailableGatherPoints.Count;
+			if (currentGatherPointsAmount >= maxGatherPointsAmount) return;
 
-			if (currentGatherPointsAmount < maxGatherPointsAmount) {
+			for (int i = currentGatherPointsAmount; i < maxGatherPointsAmount; i++) {
 
-				for (int i = currentGatherPointsAmount; i < maxGatherPointsAmount; i++) {
+				var gatherPoint = Instantiate(
+						GetRandomGatherPoint(),
+						SpawnRing.GeneratePoint(minGatherPointDistance, maxGatherPointDistance),
+						Quaternion.identity)
+					.GetComponent<GatherPoint>();
 
-					var gatherPoint = Instantiate(
-							GetRandomGatherPoint(),
-							SpawnRing.GeneratePoint(minGatherPointDistance, maxGatherPointDistance),
-							Quaternion.identity)
-						.GetComponent<GatherPoint>();
+				gatherPoint.onGatherPointExhausted += RemoveGatherPoint;
+				gatherPoint.onGathered += Gather;
+				AvailableGatherPoints.Add(gatherPoint);
 
-					AvailableGatherPoints.Add(gatherPoint);
-
-				}
 			}
 
+		}
+
+		private void Gather(GatherPoint gatherPoint) {
+			resourceRep.SpawnResourceAt(SpawnRing.GeneratePointAround(gatherPoint.transform.position, 0.5f, 2f), gatherPoint.resourceType);
+		}
+
+		private void RemoveGatherPoint(GatherPoint gatherPoint) {
+			gatherPoint.onGatherPointExhausted -= RemoveGatherPoint;
+			gatherPoint.onGathered = Gather;
+			AvailableGatherPoints.Remove(gatherPoint);
+			Destroy(gatherPoint.gameObject);
 		}
 
 #endregion

@@ -1,3 +1,4 @@
+using System;
 using GatherCraftDefend.Resources;
 using UnityEngine;
 
@@ -7,13 +8,17 @@ namespace GatherCraftDefend.GatherPoints {
 
 #region Fields
 
-		[SerializeField] private ResourceType gatherPointResourceType;
 		[SerializeField] private int maxGatherAmount;
+
+		public ResourceType resourceType;
+		public Action<GatherPoint> onGatherPointExhausted;
+		public Action<GatherPoint> onGathered;
 
 #endregion
 
 #region Properties
 
+		private GatherPointManager GatherPointManager { get; set; }
 		private int GatherAmount { get; set; } = 0;
 
 #endregion
@@ -23,10 +28,10 @@ namespace GatherCraftDefend.GatherPoints {
 		public void Gather() {
 			if (GatherAmount < maxGatherAmount) {
 				GatherAmount++;
-				//TODO: What happens on a gather? Spawn Resources...
+				onGathered?.Invoke(this);
 			}
 			else {
-				Destroy(gameObject);
+				onGatherPointExhausted?.Invoke(this);
 			}
 		}
 

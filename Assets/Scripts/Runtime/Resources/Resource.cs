@@ -4,13 +4,10 @@ namespace GatherCraftDefend.Resources {
 
 	public class Resource : MonoBehaviour {
 
-#region Fields
-
-		[SerializeField] private SpriteRenderer spriteRenderer;
-
-#endregion
-
 #region Properties
+
+		[field: SerializeField]
+		public SpriteRenderer SpriteRenderer { get; set; }
 
 		public ResourceType ResourceType { get; set; }
 
