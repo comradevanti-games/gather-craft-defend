@@ -17,12 +17,12 @@ namespace GatherCraftDefend
         private void Awake() =>
             enemyTypes = EnemySpawner.LoadEnemyTypes();
 
-        public IOpt<GameObject> TrySpawnEnemyWithName(string name) =>
+        public IOpt<Enemy> TrySpawnEnemyWithTypeName(string name) =>
             enemyTypes.TryGetById(name)
                       .Map(SpawnEnemyOfType);
 
-        private GameObject SpawnEnemyOfType(EnemyType type) =>
-            Instantiate(type.Prefab, enemyParentTransform);
+        private Enemy SpawnEnemyOfType(EnemyType type) =>
+            new Enemy(Instantiate(type.Prefab, enemyParentTransform));
 
         private static ResourceRepo<string, EnemyType> LoadEnemyTypes() =>
             ResourceRepo<string, EnemyType>.Load(ResourcePath, it => it.name);
