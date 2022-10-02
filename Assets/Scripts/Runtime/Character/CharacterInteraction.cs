@@ -1,3 +1,4 @@
+using System.Collections;
 using static GatherCraftDefend.AmmoManagement; 
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace GatherCraftDefend
     public class CharacterInteraction : MonoBehaviour
     {
 
+        private bool reloading = false;
         private Drum drum = fullDrum;
         private AmmoBag ammoBag = emptyAmmoBag;
         public GameObject bullet;
@@ -29,14 +31,21 @@ namespace GatherCraftDefend
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if(HasBullets(drum))
-                    Shoot();
+                if (HasBullets(drum))
+                {
+                    if (!reloading)
+                    {
+                        Shoot();
+                    }
+                       
+                }
+                    
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
                 if (CanReload(drum) && CanReloadFrom(ammoBag))
                 {
-                    (drum, ammoBag) = ReloadFrom(drum, ammoBag);
+                    StartCoroutine(ReloadWithDelay());
                 }
             }
             if (gatherPoints.Any())
@@ -90,5 +99,12 @@ namespace GatherCraftDefend
             Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
         }
 
+        public IEnumerator ReloadWithDelay()
+        {
+            reloading = true;
+            yield return new WaitForSeconds(0.2f);
+            (drum, ammoBag) = ReloadFrom(drum, ammoBag);
+            reloading = false;
+        }
     }
 }
