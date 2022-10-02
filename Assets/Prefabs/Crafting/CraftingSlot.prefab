@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2034337545120311401}
   m_Layer: 0
   m_Name: CraftingSlot
-  m_TagString: Untagged
+  m_TagString: CraftingSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
