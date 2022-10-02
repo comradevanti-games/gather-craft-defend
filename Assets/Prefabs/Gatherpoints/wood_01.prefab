@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3506328902635204575}
   - component: {fileID: 6910751165106326787}
   - component: {fileID: 5468336131216060116}
-  - component: {fileID: 337888746472763547}
   - component: {fileID: -7326653107572230330}
+  - component: {fileID: 3502710338735106133}
   m_Layer: 0
   m_Name: wood_01
   m_TagString: GatherPoint
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1941460901
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f85d5e2fda542f45929583e0d80ee28, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 459f07630a72bb84ca0895106ff247c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,11 +119,25 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.45}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
---- !u!70 &337888746472763547
-CapsuleCollider2D:
+  m_Radius: 1.5
+--- !u!114 &-7326653107572230330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506328902635204545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6c00c5c5f91554f91861085b21e1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxGatherAmount: 3
+  resourceType: 0
+--- !u!58 &3502710338735106133
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,20 +168,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.4}
-  m_Size: {x: 1, y: 0.4}
-  m_Direction: 1
---- !u!114 &-7326653107572230330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506328902635204545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6c00c5c5f91554f91861085b21e1bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxGatherAmount: 3
-  resourceType: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.65
