@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Resource
   - GatherPoint
+<<<<<<< Updated upstream
+  - CraftingPlace
+=======
+  - Bullet
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
