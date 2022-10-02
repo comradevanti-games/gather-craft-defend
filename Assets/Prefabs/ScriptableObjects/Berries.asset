@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f07d8fbb2917ca44cbb3a41eab15da56, type: 3}
-  m_Name: Meat
+  m_Name: Berries
   m_EditorClassIdentifier: 
-  resourceName: Meat
-  resourceSprite: {fileID: 21300000, guid: 934eb32d79b3e0d4bab35d16d6385007, type: 3}
+  resourceName: Berries
+  resourceSprite: {fileID: 21300000, guid: 3428be25c49897f46a906c5029dad81e, type: 3}
   resourceType: 3

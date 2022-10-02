@@ -12,6 +12,7 @@ namespace GatherCraftDefend {
 		[SerializeField] private GameObject priceTagPrefab;
 		[SerializeField] private Sprite priceTagSprite;
 		[SerializeField] private Vector2 priceTagOffset;
+		[SerializeField] private CraftingType craftingType;
 
 #endregion
 
@@ -20,6 +21,8 @@ namespace GatherCraftDefend {
 		public ResourceType PriceType => priceType;
 
 		public int Price => price;
+
+		public CraftingType CraftingType => craftingType;
 
 #endregion
 
