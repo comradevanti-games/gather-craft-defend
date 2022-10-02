@@ -9,7 +9,7 @@ namespace GatherCraftDefend.Resources {
 
 #region Events
 
-		public UnityEvent<ResourceType> onResourceAddedToBag;
+		public UnityEvent<ResourceType, int> onResourceAddedToBag;
 		public UnityEvent<ResourceType, int> onResourceRemovedFromBag;
 
 #endregion
@@ -28,7 +28,7 @@ namespace GatherCraftDefend.Resources {
 
 		public void AddResourceToBag(ResourceType resourceType) {
 			Bag.Add(resourceType);
-			onResourceAddedToBag?.Invoke(resourceType);
+			onResourceAddedToBag?.Invoke(resourceType, GetResourceAmount(resourceType));
 		}
 
 		public int GetResourceAmount(ResourceType resourceType) =>
