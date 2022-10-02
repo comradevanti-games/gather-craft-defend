@@ -2425,7 +2425,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: shoot
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 1
   bulletCanvas: {fileID: 744469524}
   bullet: {fileID: 8209271305884087526, guid: 8998fdc5219711045b9ce608dabd83b9, type: 3}
   bulletOrigin: {fileID: 1435840380}

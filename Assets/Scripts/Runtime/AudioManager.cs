@@ -18,6 +18,7 @@ namespace GatherCraftDefend {
 		}
 
 		public static void PlayAudioClip(string audioClipName) {
+			audioSource.Stop();
 			audioSource.PlayOneShot(GetAudioClip(audioClipName));
 		}
 
