@@ -482,6 +482,8 @@ MonoBehaviour:
     entries:
     - enum: 0
       value: They got to your stash
+    - enum: 1
+      value: Your ass got eaten
 --- !u!1 &433938788
 GameObject:
   m_ObjectHideFlags: 0

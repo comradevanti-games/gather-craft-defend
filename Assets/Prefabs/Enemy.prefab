@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.75
   damagePerTick: 1
-  ticksPerSecond: 1
+  ticksPerSecond: 2
   damageableLayers:
     serializedVersion: 2
     m_Bits: 512

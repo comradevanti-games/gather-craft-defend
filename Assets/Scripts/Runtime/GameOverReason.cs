@@ -4,7 +4,8 @@ namespace GatherCraftDefend
     public enum GameOverReason
     {
 
-        StashLost
+        StashLost,
+        Killed
 
     }
 
