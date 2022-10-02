@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using static GatherCraftDefend.AmmoManagement; 
 using System.Collections.Generic;
 using System.Linq;
+using ComradeVanti.CSharpTools;
+using Dev.ComradeVanti;
 using GatherCraftDefend.GatherPoints;
 using GatherCraftDefend.Resources;
 using UnityEngine;
@@ -21,6 +24,8 @@ namespace GatherCraftDefend
         public Transform bulletOrigin;
         public ResourcesBag resourcesBag;
         public List<GameObject> gatherPoints;
+     
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -62,14 +67,13 @@ namespace GatherCraftDefend
                 {
                     
                     var closest = gatherPoints.OrderBy(CalculateDistanceToPlayer).First();
-                    Debug.Log("Trying to gather "+ closest.name );
                     closest.gameObject.GetComponent<GatherPoint>().Gather();
                     
                     
                 }
 
                 
-
+                
                 
             }
         }
@@ -85,15 +89,36 @@ namespace GatherCraftDefend
             {
                 
                 gatherPoints.Add(other.transform.gameObject);
-                Debug.Log("I added "+other.gameObject.name+" to my list!");
+                
                 
             }
+            
+            
+            
+        }
+
+        public void OnTriggerStay2D(Collider2D other)
+        {
+            other.TryGetComponent<CraftingSlot>()
+                 .Iter(craftingSlot =>
+                 {
+                     if (Input.GetKeyDown(KeyCode.E))
+                     {
+                         if (craftingSlot.Price <= resourcesBag.GetResourceAmount(craftingSlot.PriceType))
+                         { 
+                             Debug.Log("I'm buying "+ craftingSlot.PriceType + " for " + craftingSlot.Price);
+                             resourcesBag.RemoveFromResourceBag(craftingSlot.PriceType,craftingSlot.Price);
+                            
+                         }
+                     }
+                     
+                 });
         }
 
         public void OnTriggerExit2D(Collider2D other)
         {
             gatherPoints.Remove(other.transform.gameObject);
-            Debug.Log("I removed "+other.gameObject.name+" from my list!");
+            
         }
 
         public float CalculateDistanceToPlayer(GameObject gatherPoint)
