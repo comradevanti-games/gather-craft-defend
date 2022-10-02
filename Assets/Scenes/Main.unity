@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 192128129}
   - component: {fileID: 192128128}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 221326170}
   - component: {fileID: 221326169}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: IronText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 740922117}
   - component: {fileID: 740922116}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Meat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 864455791}
   - component: {fileID: 864455790}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CoopperText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 934152179}
   - component: {fileID: 934152178}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MeatText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 1116349759}
   - component: {fileID: 1116349758}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Copper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,7 +1554,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onResourceAddedToBag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1944165639}
+        m_TargetAssemblyTypeName: GatherCraftDefend.UI.ResourceDisplay, GatherCraftDefend.UI
+        m_MethodName: OnResourceAddedToBag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   onResourceRemovedFromBag:
     m_PersistentCalls:
       m_Calls: []
@@ -102058,7 +102070,7 @@ GameObject:
   - component: {fileID: 1805881298}
   - component: {fileID: 1805881297}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WoodText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102223,6 +102235,7 @@ GameObject:
   - component: {fileID: 1944165636}
   - component: {fileID: 1944165638}
   - component: {fileID: 1944165637}
+  - component: {fileID: 1944165639}
   m_Layer: 5
   m_Name: ResourceDisplay
   m_TagString: Untagged
@@ -102292,6 +102305,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944165635}
   m_CullTransparentMesh: 1
+--- !u!114 &1944165639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944165635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8feb7defbdcc45c4fb6bd81f1ff570ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  woodMesh: {fileID: 1805881297}
+  copperMesh: {fileID: 864455790}
+  ironMesh: {fileID: 221326169}
+  meatMesh: {fileID: 934152178}
 --- !u!1 &2002151206
 GameObject:
   m_ObjectHideFlags: 0
@@ -102304,7 +102333,7 @@ GameObject:
   - component: {fileID: 2002151209}
   - component: {fileID: 2002151208}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Iron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

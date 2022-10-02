@@ -26,8 +26,12 @@ namespace GatherCraftDefend.UI {
 				{ResourceType.CopperOre, copperMesh},
 				{ResourceType.IronOre, ironMesh},
 				{ResourceType.Meat, meatMesh},
-
 			};
+
+			foreach (var resType in resourceDisplayDictionary.Keys) {
+				resourceDisplayDictionary[resType].text = "0";
+			}
+
 		}
 
 		public void OnResourceAddedToBag(ResourceType resType, int amount) {
