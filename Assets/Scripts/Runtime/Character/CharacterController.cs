@@ -8,7 +8,8 @@ namespace GatherCraftDefend
 
         [SerializeField] private Camera playerCam;
         [SerializeField] private new Rigidbody2D rigidbody;
-        [SerializeField] private float moveSpeed;
+        [SerializeField] private float maxVelocity;
+        [SerializeField] private float acceleration;
 
 
         private void Update()
@@ -19,11 +20,19 @@ namespace GatherCraftDefend
 
         private void UpdateMovement()
         {
-            var horizontal = Input.GetAxis("Horizontal");
-            var vertical = Input.GetAxis("Vertical");
+            var input = GetMovementInputVector();
+            var targetVelocity = input * maxVelocity;
 
-            var inputDirection = new Vector2(horizontal, vertical).normalized;
-            rigidbody.velocity = inputDirection * moveSpeed;
+            rigidbody.velocity = Vector2.MoveTowards(rigidbody.velocity, targetVelocity, 
+                                                     acceleration * Time.deltaTime);
+        }
+
+        private static Vector2 GetMovementInputVector()
+        {
+            var horizontal = Input.GetAxisRaw("Horizontal");
+            var vertical = Input.GetAxisRaw("Vertical");
+
+            return new Vector2(horizontal, vertical).normalized;
         }
 
         private void UpdateRotation()

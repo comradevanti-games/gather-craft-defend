@@ -2301,7 +2301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 1208324704}
   rigidbody: {fileID: 1263720490}
-  moveSpeed: 10
+  maxVelocity: 10
+  acceleration: 20
 --- !u!95 &1263720492
 Animator:
   serializedVersion: 4
