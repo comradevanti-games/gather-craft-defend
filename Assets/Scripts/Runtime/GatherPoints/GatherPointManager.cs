@@ -18,7 +18,6 @@ namespace GatherCraftDefend {
 		[SerializeField] private int maxGatherPointsAmount;
 		[SerializeField] private Transform gatherPointsContainer;
 
-
 #endregion
 
 #region Properties
@@ -55,6 +54,11 @@ namespace GatherCraftDefend {
 
 			}
 
+		}
+
+		public void RespawnGatherPoints(DayPhase phase) {
+			if (phase == DayPhase.Gather)
+				SpawnGatherPoints();
 		}
 
 		private void Gather(GatherPoint gatherPoint) {
