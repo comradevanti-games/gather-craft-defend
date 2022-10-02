@@ -14,6 +14,12 @@ namespace GatherCraftDefend.Resources {
 
 #endregion
 
+#region Fields
+
+		[SerializeField] private AudioManager audioManager;
+
+#endregion
+
 #region Properties
 
 		public List<ResourceType> Bag { get; set; }
@@ -28,6 +34,7 @@ namespace GatherCraftDefend.Resources {
 
 		public void AddResourceToBag(ResourceType resourceType) {
 			Bag.Add(resourceType);
+			audioManager.PlayAudioClip("collect", gameObject);
 			onResourceAddedToBag?.Invoke(resourceType, GetResourceAmount(resourceType));
 		}
 

@@ -1621,6 +1621,7 @@ GameObject:
   - component: {fileID: 1208324703}
   - component: {fileID: 1208324706}
   - component: {fileID: 1208324707}
+  - component: {fileID: 1208324709}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1739,6 +1740,18 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: -10}
   target: {fileID: 1263720488}
   pixelPerfectCamera: {fileID: 1208324706}
+--- !u!114 &1208324709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208324702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c4e65e60731de44bb5ab4fc1c7fe40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1251486499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,6 +2291,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  audioManager: {fileID: 1208324709}
 --- !u!114 &1263720495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,6 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09aeb3d4d611aff4d85ce86e8f8864c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 1208324709}
   bulletCanvas: {fileID: 744469524}
   bullet: {fileID: 8209271305884087526, guid: 8998fdc5219711045b9ce608dabd83b9, type: 3}
   bulletOrigin: {fileID: 1435840380}
