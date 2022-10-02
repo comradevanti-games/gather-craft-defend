@@ -15,7 +15,7 @@ namespace GatherCraftDefend
     
     public class CharacterInteraction : MonoBehaviour {
 
-        public UnityEvent onShoot;
+        [SerializeField] private AudioManager audioManager;
 
         private int i = 5;
         public GameObject bulletCanvas;
@@ -45,7 +45,7 @@ namespace GatherCraftDefend
                     if (!reloading)
                     {
                         Shoot();
-                        onShoot?.Invoke();
+                        
                     }
                        
                 }
@@ -148,7 +148,8 @@ namespace GatherCraftDefend
             drum = RemoveBulletFrom(drum);
             bulletCanvas.transform.GetChild(i).gameObject.SetActive(false);
             i--;
-            Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
+            var b = Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
+            audioManager.PlayAudioClip("shoot", b);
         }
 
         public IEnumerator ReloadWithDelay()
