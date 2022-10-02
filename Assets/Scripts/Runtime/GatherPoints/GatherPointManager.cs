@@ -33,7 +33,7 @@ namespace GatherCraftDefend {
 			SpawnGatherPoints();
 		}
 
-		private GameObject GetRandomGatherPoint() => gatherPointRepository[Random.Range(0, gatherPointRepository.Count - 1)];
+		private GameObject GetRandomGatherPoint() => gatherPointRepository[Random.Range(0, gatherPointRepository.Count)];
 
 		private void SpawnGatherPoints() {
 
