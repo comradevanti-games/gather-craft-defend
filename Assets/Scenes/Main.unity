@@ -881,9 +881,9 @@ MonoBehaviour:
   - {fileID: 3506328902635204545, guid: 7d6ee31aeb0a3214fa3c2f5108a43002, type: 3}
   - {fileID: 3506328902635204545, guid: 5f10f417413b7314c96578eb13253d4d, type: 3}
   - {fileID: 3506328902635204545, guid: 374251db41a3bad4183becb430164462, type: 3}
-  minGatherPointDistance: 7
-  maxGatherPointDistance: 30
-  maxGatherPointsAmount: 25
+  minGatherPointDistance: 15
+  maxGatherPointDistance: 50
+  maxGatherPointsAmount: 50
   gatherPointsContainer: {fileID: 1868324922}
 --- !u!114 &622370708
 MonoBehaviour:
@@ -2384,7 +2384,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1944165639}
         m_TargetAssemblyTypeName: GatherCraftDefend.UI.ResourceDisplay, GatherCraftDefend.UI
-        m_MethodName: OnResourceAddedToBag
+        m_MethodName: OnResourcesInBaggedChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2396,7 +2396,19 @@ MonoBehaviour:
         m_CallState: 1
   onResourceRemovedFromBag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1944165639}
+        m_TargetAssemblyTypeName: GatherCraftDefend.UI.ResourceDisplay, GatherCraftDefend.UI
+        m_MethodName: OnResourcesInBaggedChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &1263720495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2412,7 +2424,7 @@ MonoBehaviour:
   bulletCanvas: {fileID: 744469524}
   bullet: {fileID: 8209271305884087526, guid: 8998fdc5219711045b9ce608dabd83b9, type: 3}
   bulletOrigin: {fileID: 1435840380}
-  resourcesBag: {fileID: 0}
+  resourcesBag: {fileID: 1263720494}
   gatherPoints: []
 --- !u!114 &1263720496
 MonoBehaviour:
