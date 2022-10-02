@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.U2D;
 
 namespace GatherCraftDefend
 {
@@ -9,6 +10,7 @@ namespace GatherCraftDefend
         [SerializeField] [Range(0.1f, 2f)] private float targetReachTime;
         [SerializeField] private Vector3 offset;
         [SerializeField] private Transform target;
+        [SerializeField] private PixelPerfectCamera pixelPerfectCamera;
 
         private Vector3 velocity = Vector3.zero;
 
@@ -16,7 +18,7 @@ namespace GatherCraftDefend
         private Vector3 CurrentPos
         {
             get => transform.position;
-            set => transform.position = value;
+            set => transform.position = pixelPerfectCamera.RoundToPixel(value);
         }
 
         private Vector3 TargetPos => target.position + offset;
