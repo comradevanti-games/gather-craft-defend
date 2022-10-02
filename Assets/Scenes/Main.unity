@@ -881,7 +881,8 @@ MonoBehaviour:
   - {fileID: 3506328902635204545, guid: 7d6ee31aeb0a3214fa3c2f5108a43002, type: 3}
   - {fileID: 3506328902635204545, guid: 5f10f417413b7314c96578eb13253d4d, type: 3}
   - {fileID: 3506328902635204545, guid: 374251db41a3bad4183becb430164462, type: 3}
-  minGatherPointDistance: 15
+  - {fileID: 3506328902635204545, guid: aec0104ed21cde8479765f0856aaf812, type: 3}
+  minGatherPointDistance: 12
   maxGatherPointDistance: 50
   maxGatherPointsAmount: 50
   gatherPointsContainer: {fileID: 1868324922}
@@ -1082,7 +1083,7 @@ GameObject:
   - component: {fileID: 740922117}
   - component: {fileID: 740922116}
   m_Layer: 5
-  m_Name: Meat
+  m_Name: Berries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,7 +1130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b594d075a11001043b20c84186e8175b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3428be25c49897f46a906c5029dad81e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1351,7 +1352,7 @@ GameObject:
   - component: {fileID: 934152179}
   - component: {fileID: 934152178}
   m_Layer: 5
-  m_Name: MeatText
+  m_Name: BerriesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103000,6 +103001,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 88dc57277b9b8ab4184ee8be932f7dd7, type: 3}
     - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
+      propertyPath: craftingType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: priceTagPrefab
       value: 
       objectReference: {fileID: 4487005612662134536, guid: aa6967bc0932c6640b773d9e9db1de80, type: 3}
@@ -103161,6 +103166,10 @@ PrefabInstance:
       propertyPath: itemSprite
       value: 
       objectReference: {fileID: 21300000, guid: 88dc57277b9b8ab4184ee8be932f7dd7, type: 3}
+    - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
+      propertyPath: craftingType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: priceTagPrefab
       value: 
@@ -103487,6 +103496,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 88dc57277b9b8ab4184ee8be932f7dd7, type: 3}
     - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
+      propertyPath: craftingType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: priceTagPrefab
       value: 
       objectReference: {fileID: 4487005612662134536, guid: aa6967bc0932c6640b773d9e9db1de80, type: 3}
@@ -103711,7 +103724,7 @@ MonoBehaviour:
   woodMesh: {fileID: 1805881297}
   copperMesh: {fileID: 864455790}
   ironMesh: {fileID: 221326169}
-  meatMesh: {fileID: 934152178}
+  berriesMesh: {fileID: 934152178}
 --- !u!1 &2002151206
 GameObject:
   m_ObjectHideFlags: 0

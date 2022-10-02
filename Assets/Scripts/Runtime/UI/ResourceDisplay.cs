@@ -12,7 +12,7 @@ namespace GatherCraftDefend.UI {
 		[SerializeField] private TextMeshProUGUI woodMesh;
 		[SerializeField] private TextMeshProUGUI copperMesh;
 		[SerializeField] private TextMeshProUGUI ironMesh;
-		[SerializeField] private TextMeshProUGUI meatMesh;
+		[SerializeField] private TextMeshProUGUI berriesMesh;
 
 		private Dictionary<ResourceType, TextMeshProUGUI> resourceDisplayDictionary;
 
@@ -25,7 +25,7 @@ namespace GatherCraftDefend.UI {
 				{ResourceType.Wood, woodMesh},
 				{ResourceType.CopperOre, copperMesh},
 				{ResourceType.IronOre, ironMesh},
-				{ResourceType.Meat, meatMesh},
+				{ResourceType.Berries, berriesMesh},
 			};
 
 			foreach (var resType in resourceDisplayDictionary.Keys) {
