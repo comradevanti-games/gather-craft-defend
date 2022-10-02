@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using ComradeVanti.CSharpTools;
 using UnityEngine;
 
 namespace GatherCraftDefend
@@ -28,18 +27,14 @@ namespace GatherCraftDefend
             KillAllEnemies();
 
         private void StartWave() =>
-            TrySpawnEnemyOfType("Basic");
+            SpawnEnemy();
 
         private void KillAllEnemies() =>
             aliveEnemies.ToArray().Iter(it => it.Kill());
 
-        private void TrySpawnEnemyOfType(string typeName) =>
-            enemySpawner.TrySpawnEnemyWithTypeName(typeName)
-                        .Match(OnEnemySpawned,
-                               () => Debug.Log($"Unknown enemy-type {typeName}."));
-
-        private void OnEnemySpawned(Enemy enemy)
+        private void SpawnEnemy()
         {
+            var enemy = enemySpawner.SpawnEnemy();
             aliveEnemies.Add(enemy);
             enemy.OnDied += _ => OnEnemyDied(enemy);
         }
