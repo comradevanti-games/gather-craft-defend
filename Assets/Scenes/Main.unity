@@ -581,8 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0db2355f83e7f4fa68ca773c8ad8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnDistance: 3
-  maxSpawnDistance: 10
+  minSpawnDistance: 15
+  maxSpawnDistance: 20
   enemyParentTransform: {fileID: 1143981660}
   enemyPrefab: {fileID: 9220992574143398034, guid: 3d718daa77321fe4794f0607d0debd85, type: 3}
 --- !u!114 &622370706
@@ -1465,6 +1465,7 @@ GameObject:
   - component: {fileID: 1263720491}
   - component: {fileID: 1263720495}
   - component: {fileID: 1263720494}
+  - component: {fileID: 1263720496}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -1694,6 +1695,22 @@ MonoBehaviour:
   bulletOrigin: {fileID: 1435840380}
   resourcesBag: {fileID: 0}
   gatherPoints: []
+--- !u!114 &1263720496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263720487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7442920b69d4345bfbe41e15b46848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHealth: 5
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1323281620
 PrefabInstance:
   m_ObjectHideFlags: 0

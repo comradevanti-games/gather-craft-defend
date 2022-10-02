@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -1634942075197838819}
   - component: {fileID: -1838055331897709299}
   - component: {fileID: 7178683722449950175}
+  - component: {fileID: 452964658856870059}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -258,3 +259,21 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &452964658856870059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9220992574143398034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cee4f316f7c67c46b49c8624c08cdb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.5
+  damagePerTick: 1
+  ticksPerSecond: 1
+  damageableLayers:
+    serializedVersion: 2
+    m_Bits: 512

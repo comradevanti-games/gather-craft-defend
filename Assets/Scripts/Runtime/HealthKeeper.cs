@@ -7,8 +7,9 @@ namespace GatherCraftDefend
     public class HealthKeeper : MonoBehaviour
     {
 
+        [SerializeField] private int baseHealth;
         [SerializeField] private UnityEvent<int> onHealthChanged;
-        
+
         private int health;
 
 
@@ -17,20 +18,23 @@ namespace GatherCraftDefend
             get => health;
             set
             {
-                if (health != value)
+                var clamped = Mathf.Max(value, 0);
+                if (health != clamped)
                 {
-                    onHealthChanged.Invoke(value);
-                    health = value;
+                    health = clamped;
+                    onHealthChanged.Invoke(health);
                 }
             }
         }
 
-        public void Damage()
-        {
-            Health--;
-        }
-
         public UnityEvent<int> OnHealthChanged => onHealthChanged;
+
+
+        private void Awake() => 
+            Health = baseHealth;
+
+        public void Damage(int damage = 1) =>
+            Health -= damage;
 
     }
 
