@@ -25,6 +25,11 @@ namespace GatherCraftDefend
             }
         }
 
+        public void Damage()
+        {
+            Health--;
+        }
+
         public UnityEvent<int> OnHealthChanged => onHealthChanged;
 
     }
