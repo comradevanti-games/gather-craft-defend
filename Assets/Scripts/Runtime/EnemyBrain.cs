@@ -1,4 +1,3 @@
-using ComradeVanti.CSharpTools;
 using Pathfinding;
 using UnityEngine;
 
@@ -9,34 +8,49 @@ namespace GatherCraftDefend
     {
 
         private static readonly Vector2 stashPosition = Vector2.zero;
-        private static readonly Task goToStashTask =
-            EnemyBrain.StartGoingTo(stashPosition);
+        private static readonly EnemyTask goToStash =
+            EnemyBrain.GoToPoint(stashPosition);
 
         [SerializeField] private Seeker seeker;
 
 
-        private void Awake() => 
-            StartDoing(goToStashTask);
+        private void Awake() =>
+            StartTask(goToStash);
 
-        private void StartDoing(Task task)
+        private void OnTriggerStay2D(Collider2D other)
         {
-            switch (task)
+            if (IsPlayer(other.gameObject))
+                StartTask(new EnemyTask.GoTo(other.transform.position));
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (IsPlayer(other.gameObject))
+                StartTask(goToStash);
+        }
+
+        private void StartTask(EnemyTask enemyTask)
+        {
+            switch (enemyTask)
             {
-                case Task.GoTo goToTask:
+                case EnemyTask.GoTo goToTask:
                     seeker.StartPath(transform.position, goToTask.Target);
                     break;
             }
         }
 
 
-        private static Task StartGoingTo(Vector2 target) =>
-            new Task.GoTo(target);
+        private static EnemyTask GoToPoint(Vector2 target) =>
+            new EnemyTask.GoTo(target);
+
+        private bool IsPlayer(GameObject gameObject) =>
+            gameObject.CompareTag("Player");
 
 
-        private abstract record Task
+        private abstract record EnemyTask
         {
 
-            public record GoTo(Vector2 Target) : Task;
+            public record GoTo(Vector2 Target) : EnemyTask;
 
         }
 
