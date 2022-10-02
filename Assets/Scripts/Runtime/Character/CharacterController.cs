@@ -1,64 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GatherCraftDefend
 {
+
     public class CharacterController : MonoBehaviour
     {
 
-        public Camera playerCam;
-        public Rigidbody2D body;
+        [SerializeField] private Camera playerCam;
+        [SerializeField] private new Rigidbody2D rigidbody;
+        [SerializeField] private float moveSpeed;
 
-        public Animator anim;
-        private float horizontal;
-        private float vertical;
-        private float runSpeed = 5.0f;
-        private Vector2 moveDirection;
-        private Vector2 lastMoveDirection;
 
-        void Start ()
+        private void Update()
         {
-            body = GetComponent<Rigidbody2D>(); 
+            UpdateMovement();
+            UpdateRotation();
         }
 
-        void Update ()
+        private void UpdateMovement()
         {
-            ProcessInputs();
-            //Animate();
-            
-            Vector3 mouseScreenPosition = playerCam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = (mouseScreenPosition - transform.position).normalized;
+            var horizontal = Input.GetAxis("Horizontal");
+            var vertical = Input.GetAxis("Vertical");
+
+            var inputDirection = new Vector2(horizontal, vertical).normalized;
+            rigidbody.velocity = inputDirection * moveSpeed;
+        }
+
+        private void UpdateRotation()
+        {
+            var mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition)
+                                    .WithZ(0);
+            var direction = (mousePos - transform.position).normalized;
             transform.up = direction;
         }
-        void ProcessInputs()
-        {
-            horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
-            
-            if ((horizontal == 0 && vertical == 0) && moveDirection.x != 0 || moveDirection.y != 0)
-            {
-                lastMoveDirection = moveDirection;
-            } 
-            moveDirection = new Vector2(horizontal, vertical).normalized;
-        }
-        private void FixedUpdate()
-        {
-            Move();
-        }
 
-        private void Animate()
-        {
-            anim.SetFloat("BlendX", horizontal);
-            anim.SetFloat("BlendY",vertical);
-            anim.SetFloat("moveMagnitude", moveDirection.magnitude);
-            anim.SetFloat("lastMoveX",lastMoveDirection.x);
-            anim.SetFloat("lastMoveY",lastMoveDirection.y);
-        }
-        void Move()
-        {
-            body.velocity = new Vector2(moveDirection.x * runSpeed, moveDirection.y * runSpeed);
-        }
-        
     }
+
 }

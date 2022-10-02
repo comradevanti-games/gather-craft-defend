@@ -2301,8 +2301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 1208324704}
-  body: {fileID: 0}
-  anim: {fileID: 1263720492}
+  rigidbody: {fileID: 1263720490}
+  moveSpeed: 10
 --- !u!95 &1263720492
 Animator:
   serializedVersion: 4
