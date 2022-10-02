@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1941460901
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f85d5e2fda542f45929583e0d80ee28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,7 +119,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.25}
+  m_Offset: {x: 0, y: -0.45}
   serializedVersion: 2
   m_Radius: 1
 --- !u!70 &337888746472763547
@@ -154,8 +154,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.15}
-  m_Size: {x: 0.9, y: 0.35}
+  m_Offset: {x: 0, y: -0.4}
+  m_Size: {x: 1, y: 0.4}
   m_Direction: 1
 --- !u!114 &-7326653107572230330
 MonoBehaviour:
@@ -169,5 +169,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc6c00c5c5f91554f91861085b21e1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gatherPointResourceType: 0
   maxGatherAmount: 3
+  resourceType: 0

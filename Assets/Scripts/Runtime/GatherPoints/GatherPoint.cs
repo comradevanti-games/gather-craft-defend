@@ -26,8 +26,10 @@ namespace GatherCraftDefend.GatherPoints {
 #region Methods
 
 		public void Gather() {
+
+			GatherAmount++;
+
 			if (GatherAmount < maxGatherAmount) {
-				GatherAmount++;
 				onGathered?.Invoke(this);
 			}
 			else {
