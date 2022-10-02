@@ -34,9 +34,10 @@ namespace GatherCraftDefend.UI {
 
 		}
 
-		public void OnResourceAddedToBag(ResourceType resType, int amount) {
+		public void OnResourcesInBaggedChanged(ResourceType resType, int amount) {
 			resourceDisplayDictionary[resType].text = amount.ToString();
 		}
+		
 
 #endregion
 

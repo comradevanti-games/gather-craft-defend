@@ -35,8 +35,12 @@ namespace GatherCraftDefend.Resources {
 			Bag.FindAll(resType => resType == resourceType).Count;
 
 		public void RemoveFromResourceBag(ResourceType resourceType, int amount) {
-			Bag.Remove(Bag.First(resType => resType == resourceType));
-			onResourceRemovedFromBag?.Invoke(resourceType, amount);
+
+			for (int i = 0; i < amount; i++) {
+				Bag.Remove(Bag.First(resType => resType == resourceType));
+			}
+
+			onResourceRemovedFromBag?.Invoke(resourceType, GetResourceAmount(resourceType));
 		}
 
 #endregion
