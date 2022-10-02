@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Resource
   - GatherPoint
+  - CraftingPlace
   layers:
   - Default
   - TransparentFX

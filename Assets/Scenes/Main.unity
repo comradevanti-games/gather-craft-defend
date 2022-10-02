@@ -582,6 +582,7 @@ MonoBehaviour:
   minSpawnDistance: 3
   maxSpawnDistance: 10
   enemyParentTransform: {fileID: 1143981660}
+  enemyPrefab: {fileID: 9220992574143398034, guid: 3d718daa77321fe4794f0607d0debd85, type: 3}
 --- !u!114 &622370706
 MonoBehaviour:
   m_ObjectHideFlags: 0
