@@ -11,7 +11,7 @@ namespace GatherCraftDefend
         public static readonly Drum fullDrum = new Drum(MaxBulletsInDrum);
 
         public static readonly AmmoBag emptyAmmoBag = new AmmoBag(0);
-
+        public static readonly AmmoBag fullAmmoBag = new AmmoBag(100);
 
         public static bool CanReload(Drum drum) =>
             drum.Bullets < MaxBulletsInDrum;
