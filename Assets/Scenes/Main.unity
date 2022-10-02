@@ -179,9 +179,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1941460901
+  m_SortingLayer: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 850f4499a2204be47812a35493e18405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1530,8 +1530,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1504695337
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bed403e145ab4a04da2b42f31be62d0c, type: 3}
   m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
@@ -2508,6 +2508,10 @@ PrefabInstance:
     - target: {fileID: 4590756932216517164, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334071250801890876, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: price
@@ -102989,6 +102993,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7334071250801890876, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: price
       value: 5
@@ -103154,6 +103162,10 @@ PrefabInstance:
     - target: {fileID: 4590756932216517164, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334071250801890876, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: price
@@ -103483,6 +103495,10 @@ PrefabInstance:
     - target: {fileID: 4590756932216517164, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334071250801890876, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8224667315084520534, guid: 6aa2d2b8f7b2ecc49946de8ec80214b4, type: 3}
       propertyPath: price
