@@ -2051,6 +2051,7 @@ GameObject:
   - component: {fileID: 1263720495}
   - component: {fileID: 1263720494}
   - component: {fileID: 1263720496}
+  - component: {fileID: 1263720497}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -2313,6 +2314,33 @@ MonoBehaviour:
       - m_Target: {fileID: 622370708}
         m_TargetAssemblyTypeName: GatherCraftDefend.GameKeeper, GatherCraftDefend
         m_MethodName: OnPlayerHealthChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &1263720497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263720487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67abd3f4d40249345aee6ae90d1ce683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEquipmentChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1263720495}
+        m_TargetAssemblyTypeName: GatherCraftDefend.CharacterInteraction, GatherCraftDefend
+        m_MethodName: OnEquipmentChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -161,5 +161,21 @@ namespace GatherCraftDefend
             i = 5;
             reloading = false;
         }
+
+        public void OnEquipmentChange(EquipmentType equipmentType)
+        {
+            switch (equipmentType)
+            {
+                case EquipmentType.Gather:
+                    break;
+                case EquipmentType.Gun:
+                    break;
+                case EquipmentType.IronSpikes:
+                    break;
+                case EquipmentType.WoodBarricade:
+                    break;
+                
+            }
+        }
     }
 }
