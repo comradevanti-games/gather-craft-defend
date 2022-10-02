@@ -881,7 +881,8 @@ MonoBehaviour:
   - {fileID: 3506328902635204545, guid: 7d6ee31aeb0a3214fa3c2f5108a43002, type: 3}
   - {fileID: 3506328902635204545, guid: 5f10f417413b7314c96578eb13253d4d, type: 3}
   - {fileID: 3506328902635204545, guid: 374251db41a3bad4183becb430164462, type: 3}
-  minGatherPointDistance: 15
+  - {fileID: 3506328902635204545, guid: aec0104ed21cde8479765f0856aaf812, type: 3}
+  minGatherPointDistance: 12
   maxGatherPointDistance: 50
   maxGatherPointsAmount: 50
   gatherPointsContainer: {fileID: 1868324922}
