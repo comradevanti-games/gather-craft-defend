@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using static GatherCraftDefend.AmmoManagement; 
 using System.Collections.Generic;
 using System.Linq;
 using GatherCraftDefend.GatherPoints;
@@ -12,17 +11,34 @@ namespace GatherCraftDefend
     public class CharacterInteraction : MonoBehaviour
     {
 
+        private Drum drum = fullDrum;
+        private AmmoBag ammoBag = emptyAmmoBag;
+        public GameObject bullet;
+        public Transform bulletOrigin;
         public ResourcesBag resourcesBag;
         public List<GameObject> gatherPoints;
         // Start is called before the first frame update
         void Start()
         {
+            
             resourcesBag = GetComponent<ResourcesBag>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if(HasBullets(drum))
+                    Shoot();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                if (CanReload(drum) && CanReloadFrom(ammoBag))
+                {
+                    (drum, ammoBag) = ReloadFrom(drum, ammoBag);
+                }
+            }
             if (gatherPoints.Any())
             {
                 if (Input.GetKeyDown(KeyCode.E))
@@ -32,8 +48,12 @@ namespace GatherCraftDefend
                     Debug.Log("Trying to gather "+ closest.name );
                     closest.gameObject.GetComponent<GatherPoint>().Gather();
                     
-                    //TODO: Mine Resource, delete gatherpoint
+                    
                 }
+
+                
+
+                
             }
         }
 
@@ -62,6 +82,12 @@ namespace GatherCraftDefend
         public float CalculateDistanceToPlayer(GameObject gatherPoint)
         {
             return Vector2.Distance(transform.position, gatherPoint.transform.position);
+        }
+
+        public void Shoot()
+        {
+            drum = RemoveBulletFrom(drum);
+            Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
         }
 
     }
