@@ -22,7 +22,7 @@ namespace GatherCraftDefend
         private Vector3 TargetPos => target.position + offset;
 
 
-        private void Update() =>
+        private void FixedUpdate() =>
             UpdatePosition();
 
         private void UpdatePosition() =>
