@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -9129153486737023275}
   - component: {fileID: -1634942075197838819}
   - component: {fileID: -1838055331897709299}
+  - component: {fileID: 7178683722449950175}
   m_Layer: 7
   m_Name: Enemy_Basic
   m_TagString: Untagged
@@ -242,3 +243,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeker: {fileID: -9129153486737023275}
+--- !u!114 &7178683722449950175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9220992574143398034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7442920b69d4345bfbe41e15b46848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
