@@ -103724,7 +103724,7 @@ MonoBehaviour:
   woodMesh: {fileID: 1805881297}
   copperMesh: {fileID: 864455790}
   ironMesh: {fileID: 221326169}
-  berriesMesh: {fileID: 0}
+  berriesMesh: {fileID: 934152178}
 --- !u!1 &2002151206
 GameObject:
   m_ObjectHideFlags: 0
