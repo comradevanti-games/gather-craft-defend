@@ -2303,7 +2303,7 @@ MonoBehaviour:
   playerCam: {fileID: 1208324704}
   rigidbody: {fileID: 1263720490}
   maxVelocity: 10
-  acceleration: 20
+  acceleration: 50
 --- !u!95 &1263720492
 Animator:
   serializedVersion: 4
@@ -103724,7 +103724,7 @@ MonoBehaviour:
   woodMesh: {fileID: 1805881297}
   copperMesh: {fileID: 864455790}
   ironMesh: {fileID: 221326169}
-  berriesMesh: {fileID: 934152178}
+  berriesMesh: {fileID: 0}
 --- !u!1 &2002151206
 GameObject:
   m_ObjectHideFlags: 0
