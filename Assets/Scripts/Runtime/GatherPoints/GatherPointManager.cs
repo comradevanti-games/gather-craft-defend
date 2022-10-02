@@ -18,6 +18,7 @@ namespace GatherCraftDefend {
 		[SerializeField] private int maxGatherPointsAmount;
 		[SerializeField] private Transform gatherPointsContainer;
 
+
 #endregion
 
 #region Properties
@@ -45,7 +46,7 @@ namespace GatherCraftDefend {
 				var gatherPoint = Instantiate(
 						GetRandomGatherPoint(),
 						SpawnRing.GeneratePoint(minGatherPointDistance, maxGatherPointDistance),
-						Quaternion.identity)
+						Quaternion.identity, gatherPointsContainer)
 					.GetComponent<GatherPoint>();
 
 				gatherPoint.onGatherPointExhausted += RemoveGatherPoint;

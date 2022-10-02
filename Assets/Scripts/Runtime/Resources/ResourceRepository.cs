@@ -10,6 +10,7 @@ namespace GatherCraftDefend.Resources {
 
 		[SerializeField] private List<ResourceScriptableObject> availableResources;
 		[SerializeField] private GameObject resourcePrefab;
+		[SerializeField] private Transform resourceContainer;
 
 #endregion
 
@@ -25,7 +26,7 @@ namespace GatherCraftDefend.Resources {
 
 		public Resource SpawnResourceAt(Vector2 position, ResourceType resourceType) {
 			var so = availableResources.Find(resourceSo => resourceSo.resourceType == resourceType);
-			var resource = Instantiate(resourcePrefab, position, Quaternion.identity).GetComponent<Resource>();
+			var resource = Instantiate(resourcePrefab, position, Quaternion.identity, resourceContainer).GetComponent<Resource>();
 			resource.SpriteRenderer.sprite = so.resourceSprite;
 			resource.ResourceType = so.resourceType;
 			return resource;

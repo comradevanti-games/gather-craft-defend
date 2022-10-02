@@ -568,6 +568,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d86a1204ad65ead49ac9f847b40c7fb5, type: 2}
   - {fileID: 11400000, guid: 2752d3f1c55dde64eb2fede1f224d30d, type: 2}
   resourcePrefab: {fileID: 3506328902635204545, guid: f6056ef36d5320a4abba76ac6a484d54, type: 3}
+  resourceContainer: {fileID: 1133008328}
 --- !u!114 &622370705
 MonoBehaviour:
   m_ObjectHideFlags: 0
