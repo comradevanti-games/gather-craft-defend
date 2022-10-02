@@ -2304,6 +2304,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1263720490}
   maxVelocity: 10
   acceleration: 50
+  rotationSpeed: 720
 --- !u!95 &1263720492
 Animator:
   serializedVersion: 4

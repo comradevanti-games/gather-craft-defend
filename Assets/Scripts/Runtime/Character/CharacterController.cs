@@ -10,6 +10,7 @@ namespace GatherCraftDefend
         [SerializeField] private new Rigidbody2D rigidbody;
         [SerializeField] private float maxVelocity;
         [SerializeField] private float acceleration;
+        [SerializeField] private float rotationSpeed;
 
 
         private void Update()
@@ -23,8 +24,9 @@ namespace GatherCraftDefend
             var input = GetMovementInputVector();
             var targetVelocity = input * maxVelocity;
 
-            rigidbody.velocity = Vector2.MoveTowards(rigidbody.velocity, targetVelocity, 
-                                                     acceleration * Time.deltaTime);
+            rigidbody.velocity = Vector2.MoveTowards(
+                rigidbody.velocity, targetVelocity,
+                acceleration * Time.deltaTime);
         }
 
         private static Vector2 GetMovementInputVector()
@@ -39,8 +41,9 @@ namespace GatherCraftDefend
         {
             var mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition)
                                     .WithZ(0);
-            var direction = (mousePos - transform.position).normalized;
-            transform.up = direction;
+            var targetDirection = (mousePos - transform.position).normalized;
+            var delta = rotationSpeed * Mathf.Deg2Rad * Time.deltaTime;
+            transform.up = Vector3.RotateTowards(transform.up, targetDirection, delta, Mathf.Infinity);
         }
 
     }
