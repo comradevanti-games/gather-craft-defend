@@ -37,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9220992574143398035
 SpriteRenderer:
@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7442920b69d4345bfbe41e15b46848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 1
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cee4f316f7c67c46b49c8624c08cdb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5
+  radius: 0.75
   damagePerTick: 1
   ticksPerSecond: 1
   damageableLayers:
