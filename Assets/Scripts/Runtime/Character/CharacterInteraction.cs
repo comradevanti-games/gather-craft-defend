@@ -26,7 +26,7 @@ namespace GatherCraftDefend
         public Transform bulletOrigin;
         public ResourcesBag resourcesBag;
         public List<GameObject> gatherPoints;
-     
+        private EquipmentType equipmentState;
         
         // Start is called before the first frame update
         void Start()
@@ -38,47 +38,42 @@ namespace GatherCraftDefend
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (equipmentState == EquipmentType.Gun)
             {
-                if (HasBullets(drum))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (!reloading)
+                    if (HasBullets(drum))
                     {
-                        Shoot();
+                        if (!reloading)
+                        {
+                            Shoot();
                         
-                    }
+                        }
                        
-                }
+                    }
                     
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                //Vector3 mouseScreenPosition = ScreenToWorldPoint(Input.mousePosition);
-
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                if (CanReload(drum) && CanReloadFrom(ammoBag))
+                }
+                if (Input.GetKeyDown(KeyCode.R))
                 {
-                    StartCoroutine(ReloadWithDelay());
+                    if (CanReload(drum) && CanReloadFrom(ammoBag))
+                    {
+                        StartCoroutine(ReloadWithDelay());
+                    }
                 }
             }
-            if (gatherPoints.Any())
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    
-                    var closest = gatherPoints.OrderBy(CalculateDistanceToPlayer).First();
-                    closest.gameObject.GetComponent<GatherPoint>().Gather();
-                    
-                    
-                }
 
-                
-                
-                
+            if (equipmentState == EquipmentType.Gather)
+            {
+                if (gatherPoints.Any())
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        var closest = gatherPoints.OrderBy(CalculateDistanceToPlayer).First();
+                        closest.gameObject.GetComponent<GatherPoint>().Gather();
+                    }
+                }
             }
+            
         }
 
         public void OnTriggerEnter2D(Collider2D other)
@@ -121,9 +116,6 @@ namespace GatherCraftDefend
                                  case CraftingType.IronBarricade:
                                      break;
                                  case CraftingType.WoodBarricade:
-                                     break;
-                                 default:
-                                     Debug.Log("Nothing of the above has been crafted");
                                      break;
                              }
                          }
@@ -168,18 +160,7 @@ namespace GatherCraftDefend
 
         public void OnEquipmentChange(EquipmentType equipmentType)
         {
-            switch (equipmentType)
-            {
-                case EquipmentType.Gather:
-                    break;
-                case EquipmentType.Gun:
-                    break;
-                case EquipmentType.IronSpikes:
-                    break;
-                case EquipmentType.WoodBarricade:
-                    break;
-                
-            }
+            equipmentState = equipmentType;
         }
     }
 }
