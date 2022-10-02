@@ -8,12 +8,14 @@ using Dev.ComradeVanti;
 using GatherCraftDefend.GatherPoints;
 using GatherCraftDefend.Resources;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GatherCraftDefend
 {
     
-    public class CharacterInteraction : MonoBehaviour
-    {
+    public class CharacterInteraction : MonoBehaviour {
+
+        public UnityEvent onShoot;
 
         private int i = 5;
         public GameObject bulletCanvas;
@@ -43,6 +45,7 @@ namespace GatherCraftDefend
                     if (!reloading)
                     {
                         Shoot();
+                        onShoot?.Invoke();
                     }
                        
                 }
