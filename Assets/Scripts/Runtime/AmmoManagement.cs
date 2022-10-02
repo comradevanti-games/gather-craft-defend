@@ -45,6 +45,11 @@ namespace GatherCraftDefend
             return (drumWithBullets, bagWithoutBullets);
         }
 
+        public static AmmoBag AddTo(AmmoBag ammoBag, int bullets)
+        {
+            return new AmmoBag ( ammoBag.Bullets+bullets);
+        }
+
 
         public record Drum(int Bullets);
 

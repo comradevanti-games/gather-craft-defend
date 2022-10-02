@@ -15,7 +15,7 @@ namespace GatherCraftDefend
     public class CharacterInteraction : MonoBehaviour
     {
 
-        private int i = 0;
+        private int i = 5;
         public GameObject bulletCanvas;
         private bool reloading = false;
         private Drum drum = fullDrum;
@@ -108,7 +108,21 @@ namespace GatherCraftDefend
                          { 
                              Debug.Log("I'm buying "+ craftingSlot.PriceType + " for " + craftingSlot.Price);
                              resourcesBag.RemoveFromResourceBag(craftingSlot.PriceType,craftingSlot.Price);
-                            
+                             switch (craftingSlot.CraftingType)
+                             {
+                                 case CraftingType.Ammunition:
+                                     ammoBag = AddTo(ammoBag, craftingSlot.CraftingAmount);
+                                     break;
+                                 case CraftingType.Potion:
+                                     break;
+                                 case CraftingType.IronBarricade:
+                                     break;
+                                 case CraftingType.WoodBarricade:
+                                     break;
+                                 default:
+                                     Debug.Log("Nothing of the above has been crafted");
+                                     break;
+                             }
                          }
                      }
                      
@@ -130,7 +144,7 @@ namespace GatherCraftDefend
         {
             drum = RemoveBulletFrom(drum);
             bulletCanvas.transform.GetChild(i).gameObject.SetActive(false);
-            i++;
+            i--;
             Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
         }
 
@@ -139,12 +153,12 @@ namespace GatherCraftDefend
             reloading = true;
             yield return new WaitForSeconds(0.2f);
             (drum, ammoBag) = ReloadFrom(drum, ammoBag);
-            for(int x=0;x<6;x++)
+            for(int x=0;x<drum.Bullets;x++)
             {
                 bulletCanvas.transform.GetChild(x).gameObject.SetActive(true);
             }
 
-            i = 0;
+            i = 5;
             reloading = false;
         }
     }
