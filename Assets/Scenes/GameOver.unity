@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 362354351}
   - component: {fileID: 362354353}
   - component: {fileID: 362354352}
+  - component: {fileID: 362354354}
   m_Layer: 5
   m_Name: Txt_Reason
   m_TagString: Untagged
@@ -362,7 +363,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &362354352
 MonoBehaviour:
@@ -461,6 +462,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362354350}
   m_CullTransparentMesh: 1
+--- !u!114 &362354354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362354350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d983c7cf2d889742af181a91b6b56ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 362354352}
+  messages:
+    enumTypeName: GatherCraftDefend.GameOverReason, GatherCraftDefend, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    isOpen: 1
+    entries:
+    - enum: 0
+      value: They got to your stash
 --- !u!1 &433938788
 GameObject:
   m_ObjectHideFlags: 0
