@@ -43,7 +43,8 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "dev.comradevanti.enum-dict": "1.0.5"
   },
   "scopedRegistries": [
     {
@@ -51,6 +52,7 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.openupm",
+        "dev.comradevanti.enum-dict",
         "dev.comradevanti.opt-unity",
         "dev.comradevanti.rect-constraints",
         "org.nuget.comradevanti.csharptools.opt",
