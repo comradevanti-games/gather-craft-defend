@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GatherCraftDefend
 {
+
     public class GameKeeper : MonoBehaviour
     {
 
-        public void OnEnemyReachedStash()
-        {
+        [SerializeField] private LoadScene loadScene;
+
+        public void OnEnemyReachedStash() =>
             GameOverBecause(GameOverReason.StashLost);
-        }
 
         private void GameOverBecause(GameOverReason reason)
         {
-            Debug.Log(reason switch
-            {
-                // TODO: Add actual game-over
-                GameOverReason.StashLost => "ENEMY REACHED STASH"
-            });
+            var parameters =
+                SceneLoadParams.empty.AddInt("reason", (int)reason);
+            loadScene.WithName("GameOver", parameters);
         }
 
     }
+
 }
