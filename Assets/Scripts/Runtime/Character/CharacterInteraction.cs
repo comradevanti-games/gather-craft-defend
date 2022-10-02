@@ -12,6 +12,8 @@ namespace GatherCraftDefend
     public class CharacterInteraction : MonoBehaviour
     {
 
+        private int i = 0;
+        public GameObject bulletCanvas;
         private bool reloading = false;
         private Drum drum = fullDrum;
         private AmmoBag ammoBag = emptyAmmoBag;
@@ -96,6 +98,8 @@ namespace GatherCraftDefend
         public void Shoot()
         {
             drum = RemoveBulletFrom(drum);
+            bulletCanvas.transform.GetChild(i).gameObject.SetActive(false);
+            i++;
             Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
         }
 
@@ -104,6 +108,12 @@ namespace GatherCraftDefend
             reloading = true;
             yield return new WaitForSeconds(0.2f);
             (drum, ammoBag) = ReloadFrom(drum, ammoBag);
+            for(int x=0;x<6;x++)
+            {
+                bulletCanvas.transform.GetChild(x).gameObject.SetActive(true);
+            }
+
+            i = 0;
             reloading = false;
         }
     }
