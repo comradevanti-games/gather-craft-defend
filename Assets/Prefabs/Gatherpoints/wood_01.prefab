@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3506328902635204575}
   - component: {fileID: 6910751165106326787}
   - component: {fileID: 5468336131216060116}
-  - component: {fileID: -7326653107572230330}
   - component: {fileID: 3502710338735106133}
+  - component: {fileID: -7326653107572230330}
   m_Layer: 0
   m_Name: wood_01
   m_TagString: GatherPoint
@@ -122,20 +122,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
---- !u!114 &-7326653107572230330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506328902635204545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6c00c5c5f91554f91861085b21e1bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxGatherAmount: 3
-  resourceType: 0
 --- !u!58 &3502710338735106133
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,3 +157,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.65
+--- !u!114 &-7326653107572230330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506328902635204545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6c00c5c5f91554f91861085b21e1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxGatherAmount: 3
+  resourceType: 0
