@@ -6,6 +6,8 @@ namespace GatherCraftDefend
 {
     public class CharacterController : MonoBehaviour
     {
+
+        public Camera playerCam;
         public Rigidbody2D body;
 
         public Animator anim;
@@ -23,7 +25,11 @@ namespace GatherCraftDefend
         void Update ()
         {
             ProcessInputs();
-            Animate();
+            //Animate();
+            
+            Vector3 mouseScreenPosition = playerCam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (mouseScreenPosition - transform.position).normalized;
+            transform.up = direction;
         }
         void ProcessInputs()
         {
@@ -53,5 +59,6 @@ namespace GatherCraftDefend
         {
             body.velocity = new Vector2(moveDirection.x * runSpeed, moveDirection.y * runSpeed);
         }
+        
     }
 }
