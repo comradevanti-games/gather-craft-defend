@@ -43,6 +43,12 @@ namespace GatherCraftDefend
                 }
                     
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                //Vector3 mouseScreenPosition = ScreenToWorldPoint(Input.mousePosition);
+
+            }
             if (Input.GetKeyDown(KeyCode.R))
             {
                 if (CanReload(drum) && CanReloadFrom(ammoBag))
