@@ -2184,9 +2184,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.046887632
+    width: 1.0002273
+    height: 0.9054163
   near clip plane: 0.3
   far clip plane: 20
   field of view: 60
@@ -2203,7 +2203,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -2668,6 +2668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67abd3f4d40249345aee6ae90d1ce683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 1
   onEquipmentChange:
     m_PersistentCalls:
       m_Calls:
