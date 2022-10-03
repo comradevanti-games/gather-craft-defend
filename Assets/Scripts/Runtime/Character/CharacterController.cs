@@ -13,6 +13,7 @@ namespace GatherCraftDefend {
 		[SerializeField] private float acceleration;
 
 		private Coroutine boostCoroutine;
+		private float boostStartTime;
 
 		private bool IsPotionBoosted { get; set; } = false;
 
@@ -36,7 +37,14 @@ namespace GatherCraftDefend {
 
 		public void ActivateBoost() {
 			IsPotionBoosted = true;
+
+			if (Time.time < boostStartTime + boostDuration) {
+				boostCoroutine = StartCoroutine(BoostMovementSpeed(((boostStartTime + boostDuration) - Time.time) + boostDuration));
+				return;
+			}
+
 			boostCoroutine = StartCoroutine(BoostMovementSpeed(boostDuration));
+
 		}
 
 		private void UpdateMovement() {
@@ -62,7 +70,8 @@ namespace GatherCraftDefend {
 		}
 
 		private IEnumerator BoostMovementSpeed(float duration) {
-
+			Debug.Log($"My duration is {duration}");
+			boostStartTime = Time.time;
 			yield return new WaitForSeconds(duration);
 			IsPotionBoosted = false;
 
