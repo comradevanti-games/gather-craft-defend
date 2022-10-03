@@ -2312,7 +2312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208324702}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
@@ -2577,7 +2577,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1263720490}
   maxVelocity: 10
   acceleration: 50
-  rotationSpeed: 720
+  rotationSpeed: 500
 --- !u!114 &1263720494
 MonoBehaviour:
   m_ObjectHideFlags: 0
