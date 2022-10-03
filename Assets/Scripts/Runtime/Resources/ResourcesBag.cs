@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,31 +21,33 @@ namespace GatherCraftDefend.Resources {
 
 #region Properties
 
-		public List<ResourceType> Bag { get; set; }
+		public Dictionary<ResourceType, int> Bag { get; set; }
 
 #endregion
 
 #region Methods
 
 		private void Start() {
-			Bag = new List<ResourceType>();
+			Bag = new Dictionary<ResourceType, int>() {
+				{ResourceType.Wood, 0},
+				{ResourceType.CopperOre, 0},
+				{ResourceType.IronOre, 0},
+				{ResourceType.Berries, 0}
+			};
 		}
 
 		public void AddResourceToBag(ResourceType resourceType) {
-			Bag.Add(resourceType);
+			Bag[resourceType] += 1;
 			audioManager.PlayAudioClip("collect", gameObject);
 			onResourceAddedToBag?.Invoke(resourceType, GetResourceAmount(resourceType));
 		}
 
 		public int GetResourceAmount(ResourceType resourceType) =>
-			Bag.FindAll(resType => resType == resourceType).Count;
+			Bag[resourceType];
 
 		public void RemoveFromResourceBag(ResourceType resourceType, int amount) {
-
-			for (int i = 0; i < amount; i++) {
-				Bag.Remove(Bag.First(resType => resType == resourceType));
-			}
-
+			Bag[resourceType] -= amount;
+			audioManager.PlayAudioClip("craft", gameObject);
 			onResourceRemovedFromBag?.Invoke(resourceType, GetResourceAmount(resourceType));
 		}
 
