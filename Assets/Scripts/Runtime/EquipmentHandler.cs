@@ -1,41 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace GatherCraftDefend
 {
+
     public class EquipmentHandler : MonoBehaviour
     {
 
-        [SerializeField] public UnityEvent<EquipmentType> onEquipmentChange;
-        // Start is called before the first frame update
-        private EquipmentType equipmentType;
-        private float scroll = 0.1f;
+        [SerializeField] private UnityEvent<EquipmentType> onEquipmentChange;
+
+        private EquipmentType equipmentType = EquipmentType.Gun;
         private float fluidIndex;
-        private void Awake()
+
+
+        private void Update()
         {
-           equipmentType = EquipmentType.Gun;
+            var input = Input.mouseScrollDelta.y;
+            fluidIndex = Mathf.Repeat(fluidIndex + input, 4);
+
+            var newEquipmentType = (EquipmentType)Mathf.FloorToInt(fluidIndex);
+            if (newEquipmentType != equipmentType)
+            {
+                onEquipmentChange.Invoke(newEquipmentType);
+                equipmentType = newEquipmentType;
+            }
         }
 
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-             fluidIndex = Mathf.Repeat(Input.mouseScrollDelta.y *  scroll+fluidIndex, 4) ;
-             var newEquipment = (EquipmentType)Mathf.FloorToInt(fluidIndex);
-             if (newEquipment != equipmentType)
-             {
-                 onEquipmentChange.Invoke(newEquipment);
-                 equipmentType = newEquipment;
-                 
-             }
-        }
-
-        
     }
+
 }
