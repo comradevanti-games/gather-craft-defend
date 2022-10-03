@@ -21,6 +21,7 @@ namespace GatherCraftDefend {
 		[SerializeField] private AudioManager audioManager;
 		[SerializeField] private GameObject bulletPrefab;
 		[SerializeField] private Transform bulletOrigin;
+		[SerializeField] private Animator animationController;
 
 		private bool reloading;
 		private Drum drum = fullDrum;
@@ -96,7 +97,11 @@ namespace GatherCraftDefend {
 			slot.Price <= resourcesBag.GetResourceAmount(slot.PriceType);
 
 		private void UpdateGun() {
-			if (ShouldShoot) Shoot();
+			if (ShouldShoot) {
+				Shoot();
+				animationController.ResetTrigger("Shot");
+				animationController.SetTrigger("Shot");
+			}
 			if (ShouldReload) StartReload();
 		}
 

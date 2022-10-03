@@ -11,6 +11,7 @@ namespace GatherCraftDefend {
 		[SerializeField] private float maxVelocityBoosted;
 		[SerializeField] private float boostDuration;
 		[SerializeField] private float acceleration;
+		[SerializeField] private Animator animationController;
 
 		private Coroutine boostCoroutine;
 		private float boostStartTime;
@@ -26,7 +27,10 @@ namespace GatherCraftDefend {
 
 		private Vector2 Velocity {
 			get => rigidbody.velocity;
-			set => rigidbody.velocity = value;
+			set {
+				rigidbody.velocity = value;
+				animationController.SetFloat("MovementSpeed", rigidbody.velocity.magnitude);
+			}
 		}
 
 		private void Update() =>
