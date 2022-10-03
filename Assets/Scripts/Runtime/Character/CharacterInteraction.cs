@@ -107,6 +107,7 @@ namespace GatherCraftDefend
                              if (craftingSlot.Price <= resourcesBag.GetResourceAmount(craftingSlot.PriceType)) {
                                  Debug.Log("I'm buying " + craftingSlot.PriceType + " for " + craftingSlot.Price);
                                  resourcesBag.RemoveFromResourceBag(craftingSlot.PriceType, craftingSlot.Price);
+                                 audioManager.PlayAudioClip("craft", gameObject);
 
                                  switch (craftingSlot.CraftingType) {
                                      case CraftingType.Ammunition:
