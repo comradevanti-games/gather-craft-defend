@@ -1,63 +1,73 @@
+using System.Collections;
 using UnityEngine;
 
-namespace GatherCraftDefend
-{
+namespace GatherCraftDefend {
 
-    public class CharacterController : MonoBehaviour
-    {
+	public class CharacterController : MonoBehaviour {
 
-        [SerializeField] private Camera playerCam;
-        [SerializeField] private new Rigidbody2D rigidbody;
-        [SerializeField] private float maxVelocity;
-        [SerializeField] private float acceleration;
+		[SerializeField] private Camera playerCam;
+		[SerializeField] private new Rigidbody2D rigidbody;
+		[SerializeField] private float maxVelocity;
+		[SerializeField] private float maxVelocityBoosted;
+		[SerializeField] private float boostDuration;
+		[SerializeField] private float acceleration;
 
+		private Coroutine boostCoroutine;
 
-        private Vector3 Position => rigidbody.position;
+		private bool IsPotionBoosted { get; set; } = false;
 
-        private Vector3 Forward
-        {
-            get => transform.up;
-            set => transform.up = value.WithZ(0);
-        }
+		private Vector3 Position => rigidbody.position;
 
-        private Vector2 Velocity
-        {
-            get => rigidbody.velocity;
-            set => rigidbody.velocity = value;
-        }
+		private Vector3 Forward {
+			get => transform.up;
+			set => transform.up = value.WithZ(0);
+		}
 
+		private Vector2 Velocity {
+			get => rigidbody.velocity;
+			set => rigidbody.velocity = value;
+		}
 
-        private void Update() =>
-            UpdateRotation();
+		private void Update() =>
+			UpdateRotation();
 
-        private void FixedUpdate() =>
-            UpdateMovement();
+		private void FixedUpdate() =>
+			UpdateMovement();
 
-        private void UpdateMovement()
-        {
-            var input = GetMovementInputVector();
-            var targetVelocity = input * maxVelocity;
+		public void ActivateBoost() {
+			IsPotionBoosted = true;
+			boostCoroutine = StartCoroutine(BoostMovementSpeed(boostDuration));
+		}
 
-            Velocity = Vector2.MoveTowards(
-                Velocity, targetVelocity,
-                acceleration * Time.fixedDeltaTime);
-        }
+		private void UpdateMovement() {
+			var input = GetMovementInputVector();
+			var targetVelocity = input * (IsPotionBoosted ? maxVelocityBoosted : maxVelocity);
 
-        private static Vector2 GetMovementInputVector()
-        {
-            var horizontal = Input.GetAxisRaw("Horizontal");
-            var vertical = Input.GetAxisRaw("Vertical");
+			Velocity = Vector2.MoveTowards(
+				Velocity, targetVelocity,
+				acceleration * Time.fixedDeltaTime);
+		}
 
-            return new Vector2(horizontal, vertical).normalized;
-        }
+		private static Vector2 GetMovementInputVector() {
+			var horizontal = Input.GetAxisRaw("Horizontal");
+			var vertical = Input.GetAxisRaw("Vertical");
 
-        private void UpdateRotation()
-        {
-            var mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
-            var targetDirection = (mousePos - Position).normalized.WithZ(0);
-            Forward = targetDirection;
-        }
+			return new Vector2(horizontal, vertical).normalized;
+		}
 
-    }
+		private void UpdateRotation() {
+			var mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
+			var targetDirection = (mousePos - Position).normalized.WithZ(0);
+			Forward = targetDirection;
+		}
+
+		private IEnumerator BoostMovementSpeed(float duration) {
+
+			yield return new WaitForSeconds(duration);
+			IsPotionBoosted = false;
+
+		}
+
+	}
 
 }
