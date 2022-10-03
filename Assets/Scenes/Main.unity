@@ -390,6 +390,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1944165636}
     m_Modifications:
+    - target: {fileID: 1890324803882019907, guid: 969b81ece48237044974ce243acebb95, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890324803882019907, guid: 969b81ece48237044974ce243acebb95, type: 3}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890324803882019907, guid: 969b81ece48237044974ce243acebb95, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4342158204697721288, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_SizeDelta.x
       value: 16
@@ -429,10 +441,6 @@ PrefabInstance:
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_SizeDelta.y
@@ -619,10 +627,6 @@ PrefabInstance:
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1332,10 +1336,6 @@ PrefabInstance:
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2184,9 +2184,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.046887632
-    width: 1.0002273
-    height: 0.9054163
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 20
   field of view: 60
@@ -2203,7 +2203,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 1
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -106082,10 +106082,6 @@ PrefabInstance:
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4342158205949796375, guid: 969b81ece48237044974ce243acebb95, type: 3}
       propertyPath: m_SizeDelta.y
