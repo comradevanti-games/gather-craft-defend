@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9220992574143398032}
+  - component: {fileID: -1235282034085192154}
   - component: {fileID: 2889341003347166522}
   - component: {fileID: -8156023584608942199}
   - component: {fileID: -9129153486737023275}
@@ -123,6 +124,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &-1235282034085192154
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9220992574143398034}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &2889341003347166522
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,7 +220,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 0.7
 --- !u!114 &-9129153486737023275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +265,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 4
+  maxSpeed: 5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -248,8 +276,8 @@ MonoBehaviour:
   orientation: 1
   enableRotation: 1
   autoRepath:
-    mode: 0
-    interval: 0.5
+    mode: 1
+    interval: 1
     sensitivity: 10
     maximumInterval: 2
     visualizeSensitivity: 0
@@ -289,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 1
+  destroyOnZeroHealth: 0
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -309,4 +338,4 @@ MonoBehaviour:
   ticksPerSecond: 2
   damageableLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2560

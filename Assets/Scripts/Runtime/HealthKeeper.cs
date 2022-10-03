@@ -8,6 +8,7 @@ namespace GatherCraftDefend
     {
 
         [SerializeField] private int baseHealth;
+        [SerializeField] private bool destroyOnZeroHealth;
         [SerializeField] private UnityEvent<int> onHealthChanged;
 
         private int health;
@@ -24,13 +25,16 @@ namespace GatherCraftDefend
                     health = clamped;
                     onHealthChanged.Invoke(health);
                 }
+
+                if (health == 0 && destroyOnZeroHealth)
+                    Destroy(gameObject);
             }
         }
 
         public UnityEvent<int> OnHealthChanged => onHealthChanged;
 
 
-        private void Awake() => 
+        private void Awake() =>
             Health = baseHealth;
 
         public void Damage(int damage = 1) =>
