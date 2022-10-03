@@ -18,7 +18,7 @@ namespace GatherCraftDefend
         private Vector3 CurrentPos
         {
             get => transform.position;
-            set => transform.position = pixelPerfectCamera.RoundToPixel(value);
+            set => transform.position = value;
         }
 
         private Vector3 TargetPos => target.position + offset;
