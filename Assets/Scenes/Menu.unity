@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (C) 2022, Ramon Brullo, Michael Zauchinger, Tobias Rabo
+  m_text: (C) 2022, Ramon Brullo, Tobias Rabo, Michael Zauchinger
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5519cdbb01190a64a94b84db408fbefd, type: 2}
   m_sharedMaterial: {fileID: 2959212398193656408, guid: 5519cdbb01190a64a94b84db408fbefd, type: 2}
