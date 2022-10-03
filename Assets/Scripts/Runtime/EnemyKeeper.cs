@@ -35,7 +35,7 @@ namespace GatherCraftDefend
         }
 
         private int CalculateEnemyCountForNight() =>
-            Mathf.Max(Mathf.FloorToInt(night * 0.75f), 1);
+            Mathf.Max(Mathf.FloorToInt(night * 0.6f), 1);
 
         private void KillAllEnemies() =>
             aliveEnemies.ToArray().Iter(it => it.Kill());
