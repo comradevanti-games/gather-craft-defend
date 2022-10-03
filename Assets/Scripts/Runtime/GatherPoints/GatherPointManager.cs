@@ -62,7 +62,7 @@ namespace GatherCraftDefend {
 		}
 
 		private void Gather(GatherPoint gatherPoint) {
-			resourceRep.SpawnResourceAt(SpawnRing.GeneratePointAround(gatherPoint.transform.position, 0.5f, 2f), gatherPoint.resourceType);
+			resourceRep.SpawnResourceAt(gatherPoint.transform.position, gatherPoint.resourceType);
 		}
 
 		private void RemoveGatherPoint(GatherPoint gatherPoint) {

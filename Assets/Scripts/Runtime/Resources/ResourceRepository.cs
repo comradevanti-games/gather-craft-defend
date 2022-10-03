@@ -24,13 +24,16 @@ namespace GatherCraftDefend.Resources {
 			return availableResources.First(resource => resource.resourceName == resourceName);
 		}
 
-		public Resource SpawnResourceAt(Vector2 position, ResourceType resourceType) {
+		public void SpawnResourceAt(Vector2 gatherPointPosition, ResourceType resourceType) {
 			var so = availableResources.Find(resourceSo => resourceSo.resourceType == resourceType);
-			var resource = Instantiate(resourcePrefab, position, Quaternion.identity, resourceContainer).GetComponent<Resource>();
+			var resource = Instantiate(resourcePrefab, gatherPointPosition, Quaternion.identity, resourceContainer).GetComponent<Resource>();
+			var dest = SpawnRing.GeneratePointAround(gatherPointPosition, 0.5f, 2.5f);
 			resource.SpriteRenderer.sprite = so.resourceSprite;
 			resource.ResourceType = so.resourceType;
-			return resource;
+			resource.Drop(dest);
 		}
+
+
 
 #endregion
 
