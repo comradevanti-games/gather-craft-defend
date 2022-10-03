@@ -14,6 +14,8 @@ namespace GatherCraftDefend
         private bool placerEnabled;
 
 
+        public int BarricadeCount { get; set; }
+
         private bool PlacerEnabled
         {
             get => placerEnabled;
@@ -32,13 +34,17 @@ namespace GatherCraftDefend
             if (PlacerEnabled && Input.GetMouseButton(0))
             {
                 var position = preview.Position;
-                if (CanReach(position) && placeablesKeeper.CanPlaceAt(position))
+                if (CanReach(position) && placeablesKeeper.CanPlaceAt(position)
+                                       && BarricadeCount > 0)
+                {
                     placeablesKeeper.PlaceBarricadeAt(position);
+                    BarricadeCount--;
+                }
             }
         }
 
 
-        private bool CanReach(Vector2 position) => 
+        private bool CanReach(Vector2 position) =>
             Vector2.Distance(position, transform.position) <= maxPlaceDistance;
 
         public void OnEquipmentChanged(EquipmentType equipmentType) =>
