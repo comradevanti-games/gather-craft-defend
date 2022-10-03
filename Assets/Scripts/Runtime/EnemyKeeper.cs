@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +35,7 @@ namespace GatherCraftDefend
         }
 
         private int CalculateEnemyCountForNight() =>
-            Mathf.FloorToInt(60f / (1 + Mathf.Pow((float)Math.E, -0.2f * night)) - 30f);
+            Mathf.Max(Mathf.FloorToInt(night * 0.75f), 1);
 
         private void KillAllEnemies() =>
             aliveEnemies.ToArray().Iter(it => it.Kill());
