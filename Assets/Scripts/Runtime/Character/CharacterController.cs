@@ -18,7 +18,7 @@ namespace GatherCraftDefend
         private Vector3 Forward
         {
             get => transform.up;
-            set => transform.up = value;
+            set => transform.up = value.WithZ(0);
         }
 
         private Vector2 Velocity
@@ -54,9 +54,8 @@ namespace GatherCraftDefend
 
         private void UpdateRotation()
         {
-            var mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition)
-                                    .WithZ(0);
-            var targetDirection = (mousePos - Position).normalized;
+            var mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
+            var targetDirection = (mousePos - Position).normalized.WithZ(0);
             var delta = rotationSpeed * Mathf.Deg2Rad * Time.fixedDeltaTime;
             Forward = Vector3.RotateTowards(Forward, targetDirection,
                                             delta, Mathf.Infinity);
