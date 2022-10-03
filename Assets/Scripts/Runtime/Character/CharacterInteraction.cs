@@ -102,21 +102,23 @@ namespace GatherCraftDefend
                  {
                      if (Input.GetKeyDown(KeyCode.E))
                      {
-                         if (craftingSlot.Price <= resourcesBag.GetResourceAmount(craftingSlot.PriceType))
-                         { 
-                             Debug.Log("I'm buying "+ craftingSlot.PriceType + " for " + craftingSlot.Price);
-                             resourcesBag.RemoveFromResourceBag(craftingSlot.PriceType,craftingSlot.Price);
-                             switch (craftingSlot.CraftingType)
-                             {
-                                 case CraftingType.Ammunition:
-                                     ammoBag = AddTo(ammoBag, craftingSlot.CraftingAmount);
-                                     break;
-                                 case CraftingType.Potion:
-                                     break;
-                                 case CraftingType.IronBarricade:
-                                     break;
-                                 case CraftingType.WoodBarricade:
-                                     break;
+                         if (craftingSlot.IsOpen) {
+                             
+                             if (craftingSlot.Price <= resourcesBag.GetResourceAmount(craftingSlot.PriceType)) {
+                                 Debug.Log("I'm buying " + craftingSlot.PriceType + " for " + craftingSlot.Price);
+                                 resourcesBag.RemoveFromResourceBag(craftingSlot.PriceType, craftingSlot.Price);
+
+                                 switch (craftingSlot.CraftingType) {
+                                     case CraftingType.Ammunition:
+                                         ammoBag = AddTo(ammoBag, craftingSlot.CraftingAmount);
+                                         break;
+                                     case CraftingType.Potion:
+                                         break;
+                                     case CraftingType.IronBarricade:
+                                         break;
+                                     case CraftingType.WoodBarricade:
+                                         break;
+                                 }
                              }
                          }
                      }
