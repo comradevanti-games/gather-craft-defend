@@ -146,11 +146,14 @@ namespace GatherCraftDefend
                                 onPotionBought?.Invoke();
                                 break;
                             case CraftingType.WoodBarricade:
-                                placeablePlacer.BarricadeCount += slot.CraftingAmount;
+                                placeablePlacer.PlaceableCounts[Placeable.Barricade]
+                                    += slot.CraftingAmount;
                                 break;
                             case CraftingType.IronBarricade:
-                            default:
-                                throw new NotImplementedException();
+                                placeablePlacer.PlaceableCounts[Placeable.Spikes]
+                                    += slot.CraftingAmount;
+                                break;
+                            default: throw new ArgumentOutOfRangeException();
                         }
                     });
         }

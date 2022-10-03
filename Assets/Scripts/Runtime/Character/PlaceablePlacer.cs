@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using ComradeVanti.CSharpTools;
+using Dev.ComradeVanti.EnumDict;
 using UnityEngine;
 
 namespace GatherCraftDefend
@@ -8,47 +11,60 @@ namespace GatherCraftDefend
 
         [SerializeField] private float maxPlaceDistance;
         [SerializeField] private PlaceablePreview preview;
-        [SerializeField] private Sprite barricadeSprite;
+        [SerializeField] private EnumDict<Placeable, Sprite> previewSprites;
         [SerializeField] private PlaceablesKeeper placeablesKeeper;
 
-        private bool placerEnabled;
+
+        private IOpt<Placeable> placeable = Opt.None<Placeable>();
 
 
-        public int BarricadeCount { get; set; }
-
-        private bool PlacerEnabled
+        public Dictionary<Placeable, int> PlaceableCounts { get; } = new Dictionary<Placeable, int>
         {
-            get => placerEnabled;
+            { GatherCraftDefend.Placeable.Barricade, 0 },
+            { GatherCraftDefend.Placeable.Spikes, 0 }
+        };
+
+        private IOpt<Placeable> Placeable
+        {
+            get => placeable;
             set
             {
-                placerEnabled = value;
-                if (placerEnabled)
-                    preview.Show(barricadeSprite);
-                else
-                    preview.Hide();
+                placeable = value;
+                placeable.Match(
+                    it => preview.Show(previewSprites[it]),
+                    () => preview.Hide());
             }
         }
 
-        private void Update()
-        {
-            if (PlacerEnabled && Input.GetMouseButton(0))
+
+        private void Update() =>
+            placeable.Iter(it =>
             {
-                var position = preview.Position;
-                if (CanReach(position) && placeablesKeeper.CanPlaceAt(position)
-                                       && BarricadeCount > 0)
+                if (Input.GetMouseButton(0))
                 {
-                    placeablesKeeper.PlaceBarricadeAt(position);
-                    BarricadeCount--;
+                    var position = preview.Position;
+                    if (CanReach(position) && placeablesKeeper.CanPlaceAt(position) &&
+                        PlaceableCounts[it] > 0)
+                    {
+                        placeablesKeeper.Place(it, position);
+                        PlaceableCounts[it]--;
+                    }
                 }
-            }
-        }
+            });
 
 
         private bool CanReach(Vector2 position) =>
             Vector2.Distance(position, transform.position) <= maxPlaceDistance;
 
         public void OnEquipmentChanged(EquipmentType equipmentType) =>
-            PlacerEnabled = equipmentType == EquipmentType.WoodBarricade;
+            Placeable = equipmentType switch
+            {
+                EquipmentType.WoodBarricade =>
+                    Opt.Some(GatherCraftDefend.Placeable.Barricade),
+                EquipmentType.IronSpikes =>
+                    Opt.Some(GatherCraftDefend.Placeable.Spikes),
+                _ => Opt.None<Placeable>()
+            };
 
     }
 
