@@ -27,6 +27,8 @@ namespace GatherCraftDefend {
 
 		public int CraftingAmount => craftingAmount;
 
+		public bool IsOpen { get; set; } = false;
+
 #endregion
 
 #region Methods
