@@ -6,9 +6,10 @@ namespace GatherCraftDefend
     public static class TimeProgression
     {
 
-        public const float SecondsInDay = 30f;
-        public const float Phase1End = SecondsInDay / 3f;
-        public const float Phase2End = 2f * Phase1End;
+        public const float SecondsInPhase = 10f;
+        public const float SecondsInDay = SecondsInPhase * 3;
+        public const float Phase1End = SecondsInPhase;
+        public const float Phase2End = 2f * SecondsInPhase;
 
         public static readonly GameRuntime initialTime = new GameRuntime(0);
 
@@ -21,6 +22,9 @@ namespace GatherCraftDefend
 
         public static float PassedDaySecondsIn(GameRuntime runtime) =>
             runtime.TotalSeconds % SecondsInDay;
+        
+        public static float PassedPhaseSecondsIn(GameRuntime runtime) =>
+            runtime.TotalSeconds % SecondsInPhase;
 
         public static DayPhase DayPhaseOf(GameRuntime runtime) =>
             PassedDaySecondsIn(runtime) switch
