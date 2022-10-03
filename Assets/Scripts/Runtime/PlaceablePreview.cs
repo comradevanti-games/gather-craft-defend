@@ -9,6 +9,9 @@ namespace GatherCraftDefend
         [SerializeField] private new Camera camera;
         [SerializeField] private SpriteRenderer spriteRenderer;
 
+
+        public Vector2 Position => transform.position;
+        
         
         private void Update()
         {
