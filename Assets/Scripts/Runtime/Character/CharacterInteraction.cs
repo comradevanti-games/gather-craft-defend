@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,20 +16,22 @@ namespace GatherCraftDefend
     public class CharacterInteraction : MonoBehaviour
     {
 
+        [SerializeField] private float reloadTime;
         [SerializeField] private UnityEvent<Drum> onDrumChanged;
         [SerializeField] private UnityEvent<AmmoBag> onAmmoBagChanged;
         [SerializeField] private AudioManager audioManager;
+        [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private Transform bulletOrigin;
 
         private bool reloading;
         private Drum drum = fullDrum;
         private AmmoBag ammoBag = emptyAmmoBag;
-        public GameObject bullet;
-        public Transform bulletOrigin;
-        public ResourcesBag resourcesBag;
-        public List<GameObject> gatherPoints;
+        private ResourcesBag resourcesBag;
         private EquipmentType equipmentState;
+        private readonly List<GatherPoint> gatherPoints = new List<GatherPoint>();
+        private readonly List<CraftingSlot> craftingSlots = new List<CraftingSlot>();
 
-        
+
         public Drum Drum
         {
             get => drum;
@@ -49,87 +52,126 @@ namespace GatherCraftDefend
             }
         }
 
-        
-        private void Start() =>
+        private bool CanShoot => HasBullets(Drum) && !reloading;
+
+        private bool ShouldShoot => Input.GetMouseButtonDown(0) && CanShoot;
+
+        private bool CanReload => CanReload(Drum) && CanReloadFrom(AmmoBag);
+
+        private bool ShouldReload => Input.GetKeyDown(KeyCode.R) && CanReload;
+
+
+        private void Awake() =>
             resourcesBag = GetComponent<ResourcesBag>();
 
         private void Update()
         {
-            if (equipmentState == EquipmentType.Gun)
+            switch (equipmentState)
             {
-                if (Input.GetMouseButtonDown(0))
-                    if (HasBullets(Drum))
-                        if (!reloading)
-                            Shoot();
-                if (Input.GetKeyDown(KeyCode.R))
-                    if (CanReload(Drum) && CanReloadFrom(AmmoBag))
-                        StartCoroutine(ReloadWithDelay());
+                case EquipmentType.Gun:
+                    UpdateGun();
+                    break;
+                case EquipmentType.Gather:
+                    UpdateGather();
+                    break;
             }
 
-            if (equipmentState == EquipmentType.Gather)
-                if (gatherPoints.Any())
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        var closest = gatherPoints.OrderBy(CalculateDistanceToPlayer).First();
-                        closest.gameObject.GetComponent<GatherPoint>().Gather();
-                    }
+            UpdateCraft();
         }
 
         public void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag == "Resource")
-            {
-                resourcesBag.AddResourceToBag(other.GetComponent<Resource>().ResourceType);
-                other.GetComponent<Resource>().Collect();
-            }
-            else if (other.tag == "GatherPoint") gatherPoints.Add(other.transform.gameObject);
-        }
-
-        public void OnTriggerExit2D(Collider2D other) => gatherPoints.Remove(other.transform.gameObject);
-
-        public void OnTriggerStay2D(Collider2D other) =>
-            other.TryGetComponent<CraftingSlot>()
-                 .Iter(craftingSlot =>
+            other.TryGetComponent<Resource>()
+                 .Iter(it =>
                  {
-                     if (Input.GetKeyDown(KeyCode.E))
-                         if (craftingSlot.IsOpen)
-                             if (craftingSlot.Price <= resourcesBag.GetResourceAmount(craftingSlot.PriceType))
-                             {
-                                 Debug.Log("I'm buying " + craftingSlot.PriceType + " for " + craftingSlot.Price);
-                                 resourcesBag.RemoveFromResourceBag(craftingSlot.PriceType, craftingSlot.Price);
-
-                                 switch (craftingSlot.CraftingType)
-                                 {
-                                     case CraftingType.Ammunition:
-                                         AmmoBag = AddTo(AmmoBag, craftingSlot.CraftingAmount);
-                                         break;
-                                     case CraftingType.Potion:
-                                         break;
-                                     case CraftingType.IronBarricade:
-                                         break;
-                                     case CraftingType.WoodBarricade:
-                                         break;
-                                 }
-                             }
+                     resourcesBag.AddResourceToBag(it.ResourceType);
+                     it.Collect();
                  });
 
-        public float CalculateDistanceToPlayer(GameObject gatherPoint) =>
-            Vector2.Distance(transform.position, gatherPoint.transform.position);
+            other.TryGetComponent<GatherPoint>()
+                 .Iter(gatherPoints.Add);
+            other.TryGetComponent<CraftingSlot>()
+                 .Iter(craftingSlots.Add);
+        }
 
-        public void Shoot()
+        public void OnTriggerExit2D(Collider2D other)
+        {
+            other.TryGetComponent<GatherPoint>()
+                 .Iter(it => gatherPoints.Remove(it));
+            other.TryGetComponent<CraftingSlot>()
+                 .Iter(it => craftingSlots.Remove(it));
+        }
+
+        private bool CanAffordItemFrom(CraftingSlot slot) =>
+            slot.Price <= resourcesBag.GetResourceAmount(slot.PriceType);
+
+
+        private void UpdateGun()
+        {
+            if (ShouldShoot) Shoot();
+            if (ShouldReload) StartReload();
+        }
+
+        private void UpdateGather()
+        {
+            if (Input.GetMouseButtonDown(0))
+                gatherPoints.OrderBy(DistanceToPlayer)
+                            .TryFirst()
+                            .Iter(it => it.Gather());
+        }
+
+        private void UpdateCraft()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+                TryGetClosestCraftingSlot()
+                    .Filter(slot => slot.IsOpen && CanAffordItemFrom(slot))
+                    .Iter(slot =>
+                    {
+                        resourcesBag.RemoveFromResourceBag(slot.PriceType, slot.Price);
+
+                        switch (slot.CraftingType)
+                        {
+                            case CraftingType.Ammunition:
+                                AmmoBag = AddTo(AmmoBag, slot.CraftingAmount);
+                                break;
+                            case CraftingType.Potion:
+                            case CraftingType.IronBarricade:
+                            case CraftingType.WoodBarricade:
+                            default:
+                                throw new NotImplementedException();
+                        }
+                    });
+        }
+
+        private IOpt<CraftingSlot> TryGetClosestCraftingSlot() =>
+            craftingSlots.OrderBy(DistanceToPlayer)
+                         .TryFirst();
+
+        private float DistanceToPlayer(MonoBehaviour script) =>
+            Vector2.Distance(transform.position, script.transform.position);
+
+        private void Shoot()
         {
             Drum = RemoveBulletFrom(Drum);
-            var b = Instantiate(bullet, bulletOrigin.position, bulletOrigin.rotation);
+            var b = Instantiate(bulletPrefab, bulletOrigin.position, bulletOrigin.rotation);
             audioManager.PlayAudioClip("shoot", b);
         }
 
-        public IEnumerator ReloadWithDelay()
+        private void StartReload()
         {
-            reloading = true;
-            yield return new WaitForSeconds(0.2f);
-            (Drum, AmmoBag) = ReloadFrom(Drum, AmmoBag);
-            reloading = false;
+            IEnumerator WaitAndReload()
+            {
+                reloading = true;
+                yield return new WaitForSeconds(reloadTime);
+                Reload();
+                reloading = false;
+            }
+
+            StartCoroutine(WaitAndReload());
         }
+
+        private void Reload() =>
+            (Drum, AmmoBag) = ReloadFrom(Drum, AmmoBag);
 
         public void OnEquipmentChange(EquipmentType equipmentType) =>
             equipmentState = equipmentType;
