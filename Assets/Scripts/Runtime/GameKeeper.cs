@@ -9,10 +9,6 @@ namespace GatherCraftDefend
 
         [SerializeField] private LoadScene loadScene;
 
-        private void Awake() {
-            GL.ClearWithSkybox(true,Camera.main);
-        }
-
         public void OnEnemyReachedStash() =>
             GameOverBecause(GameOverReason.StashLost);
 
