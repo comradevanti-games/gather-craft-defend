@@ -66,7 +66,7 @@ namespace GatherCraftDefend
             {
                 if (gatherPoints.Any())
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetMouseButtonDown(0))
                     {
                         var closest = gatherPoints.OrderBy(CalculateDistanceToPlayer).First();
                         closest.gameObject.GetComponent<GatherPoint>().Gather();
