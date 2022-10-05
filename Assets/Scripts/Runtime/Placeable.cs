@@ -1,12 +1,10 @@
-namespace GatherCraftDefend
-{
+namespace GatherCraftDefend {
+	
+	public enum Placeable {
 
-    public enum Placeable
-    {
+		Barricade,
+		Spikes
 
-        Barricade,
-        Spikes
-
-    }
+	}
 
 }

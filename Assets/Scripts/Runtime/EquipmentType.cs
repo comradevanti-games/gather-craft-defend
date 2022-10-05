@@ -6,8 +6,8 @@ namespace GatherCraftDefend
 
         Gun,
         Gather,
-        WoodBarricade,
-        IronSpikes
+        Barricade,
+        Spikes
 
     }
 

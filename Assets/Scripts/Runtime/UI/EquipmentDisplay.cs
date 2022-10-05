@@ -1,20 +1,27 @@
-using Dev.ComradeVanti.EnumDict;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GatherCraftDefend.UI
-{
+namespace GatherCraftDefend.UI {
 
-    public class EquipmentDisplay : MonoBehaviour
-    {
+	public class EquipmentDisplay : MonoBehaviour {
 
-        [SerializeField] private Image iconImage;
-        [SerializeField] private EnumDict<EquipmentType, Sprite> equipmentSprites;
+		[SerializeField] private Image iconImage;
+		[SerializeField] private List<EquipmentType> equipmentTypes;
+		[SerializeField] private List<Sprite> equipmentSprites;
 
-        
-        public void OnEquipmentChanged(EquipmentType type) =>
-            iconImage.sprite = equipmentSprites[type];
+		private Dictionary<EquipmentType, Sprite> EquipmentIcons { get; } = new Dictionary<EquipmentType, Sprite>();
 
-    }
+		private void Start() {
+			for (int i = 0; i < equipmentTypes.Count; i++) {
+				EquipmentIcons.Add(equipmentTypes[i], equipmentSprites[i]);
+			}
+		}
+
+		public void OnEquipmentChanged(EquipmentType type) =>
+			iconImage.sprite = EquipmentIcons[type];
+
+	}
 
 }

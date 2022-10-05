@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using ComradeVanti.CSharpTools;
-using Dev.ComradeVanti.EnumDict;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +10,11 @@ namespace GatherCraftDefend.UI
     {
 
         [SerializeField] private TextMeshProUGUI label;
-        [SerializeField] private EnumDict<GameOverReason, string> messages;
+
+        private Dictionary<GameOverReason, string> endMessages = new Dictionary<GameOverReason, string> {
+            {GameOverReason.StashLost, "You lost your stash!"},
+            {GameOverReason.Killed, "You got killed by the zombies!"}
+        };
 
 
         private void Awake() => DisplayReason();
@@ -19,7 +23,7 @@ namespace GatherCraftDefend.UI
         {
             var message = LoadScene.Parameters.TryGetInt("reason")
                                    .Map(i => (GameOverReason)i)
-                                   .Map(reason => messages[reason])
+                                   .Map(reason => endMessages[reason])
                                    .DefaultValue("You died for some reason");
             label.text = message;
         }
